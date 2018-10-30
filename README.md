@@ -6,8 +6,8 @@ Instalação
 2 - Criar a tabela Mysql e importar o arquivo sql-inicial
 
 3 - Configurar os arquivos:
-  /application/config.php (url do seu site)
-  /application/database.php (dados do seu banco)
+  /application/config/config.php (url do seu site)
+  /application/config/database.php (dados do seu banco)
   
 4 - Alterar a senha do usuário na tabela funcionários utilizando SHA1
 

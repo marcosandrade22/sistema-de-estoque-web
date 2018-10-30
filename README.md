@@ -1,4 +1,4 @@
-# sistema-de-estoque-web
+# Sistema de estoque WEB colabolativo
 Instalação
 
 1 - Copiar a pasta para seu host
@@ -10,4 +10,3 @@ Instalação
   /application/config/database.php (dados do seu banco)
   
 4 - Alterar a senha do usuário na tabela funcionários utilizando SHA1
-

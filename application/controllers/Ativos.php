@@ -18,7 +18,7 @@ class Ativos extends MY_Controller {
         if(Controleacesso::acesso($controller) == true){
             
         $data['pagina'] = "Ativos";
-        $data['title'] = "Ativos - Estoque ARS";
+        $data['title'] = "Ativos - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -51,7 +51,7 @@ class Ativos extends MY_Controller {
         $data['departamento'] = $this->M_nota->listDep();
         //$data['dep_ced'] = $this->requisicao->lista_dep_req();
        // $data['tipo'] = $this->requisicao->lista_tipo_rq();
-        $data['title'] = "Requisições - Estoque ARS";
+        $data['title'] = "Requisições - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -68,7 +68,7 @@ class Ativos extends MY_Controller {
       
    
         $data['pagina'] = "Requisição de Ativos- Adicionar Itens";
-        $data['title'] = "Requisição - Estoque ARS";
+        $data['title'] = "Requisição - Estoque";
         $data['nf'] = $this->M_ativos->get_requisicao($id);
         $data['itens'] = $this->M_ativos->lista_itens_rq($id);
        

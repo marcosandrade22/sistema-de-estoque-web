@@ -23,7 +23,7 @@ class Estoque extends MY_Controller {
         
         $data['departamentos'] = $this->M_nota->listDep();
         $data['pagina'] = "Estoque";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -41,7 +41,7 @@ class Estoque extends MY_Controller {
         if(Controleacesso::acesso($controller) == true){
         $data['departamento'] = $this->M_nota->listDep();
         $data['pagina'] = "Produtos";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -61,7 +61,7 @@ class Estoque extends MY_Controller {
             
         $this->load->model('M_estoqueqt', '', TRUE);
         $data['pagina'] = "Estoque";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $data['departamentos'] = $this->M_nota->listDep();
         $data['lista'] = $this->produtos->lista_estoque();
         $this->load->model('Getuser');
@@ -185,7 +185,7 @@ class Estoque extends MY_Controller {
         
         $this->load->model('M_produto', '', TRUE);
         $data['pagina'] = "Produtos";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $data['lista'] = $this->cadastro->lista_produto();
        
         $this->load->view('v_header',$data);
@@ -205,7 +205,7 @@ class Estoque extends MY_Controller {
             
         $data['departamento'] = $this->M_nota->listDep();
         $data['pagina'] = "Editar  Produto";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -309,7 +309,7 @@ class Estoque extends MY_Controller {
         
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Departamentos";
-        $data['title'] = "Departamentos - Estoque ARS";
+        $data['title'] = "Departamentos - Estoque";
         $data['fornecedor'] = $this->produtos->listDep();
         $this->load->model('Getuser');
         $this->load->helper('url');
@@ -333,7 +333,7 @@ class Estoque extends MY_Controller {
         $data['saida'] =  $list = $this->produtos->detalhe_saida_estoque($id);
         $data['produto'] =  $list = $this->produtos->detalhe_produto($id);
         $data['pagina'] = "Extrato do Produto";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -346,7 +346,7 @@ class Estoque extends MY_Controller {
         //$data['saida'] =  $list = $this->produtos->detalhe_saida_estoque($id);
         $data['produto'] =  $list = $this->produtos->detalhe_produto($id);
         $data['pagina'] = "Extrato do Produto";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -358,7 +358,7 @@ class Estoque extends MY_Controller {
         $data['lista'] =  $list = $this->produtos->detalhe_baixa($id);
         $data['produto'] =  $list = $this->produtos->detalhe_transf($id);
         $data['pagina'] = "Requisição";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -372,7 +372,7 @@ class Estoque extends MY_Controller {
         
         
         $data['pagina'] = "Relatório de Estoque";
-        $data['title'] = "Relatório de Estoque - Estoque ARS";
+        $data['title'] = "Relatório de Estoque - Estoque";
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
         $this->load->view('v_filtro_estoque', $data);

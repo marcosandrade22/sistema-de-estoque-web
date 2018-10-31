@@ -82,6 +82,6 @@ $this->load->model('M_requisicao', '', TRUE);
     
   
       <div class="container" style="font-family: Arial;">
-        <p class="text-muted" style="font-family: Arial;">Relatório Administrativo - Sistema de controle de estoque ARS - &copy;Todos os direitos reservados</p>
+        <p class="text-muted" style="font-family: Arial;">Relatório Administrativo - Sistema de controle de estoque - &copy;Todos os direitos reservados</p>
       </div>
     </footer>

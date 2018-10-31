@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * Sistema  IASD belclima.
  * Desenvolvido por Marcos Andrade suportetuxinfo@gmail.com
  * Todos os direitos reservados
@@ -20,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Estoque Ars - Área administrativa</title>
+    <title>Estoque - Área administrativa</title>
 <base href="<?php echo base_url(); ?>" >
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ;?>assets/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong> Gestao de Estoque ARS</strong>
+						<strong> Gestao de Estoque</strong>
 					</div>
 					<div class="panel-body">
 						<form role="form" action="<?php echo base_url('/login/logar') ?>" method="post">
@@ -67,7 +67,7 @@
 											<div class="input-group">
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
-												</span> 
+												</span>
 												<input class="form-control" placeholder="Email" name="email" type="text" autofocus>
 											</div>
 										</div>

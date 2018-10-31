@@ -15,7 +15,7 @@ class Departamantos_sec extends MY_Controller {
          public function _example_output($output = null)
 	{     
                $this->load->model('Getuser');
-        $data['title'] = "Página Inicial - Controle de Estoque ARS";
+        $data['title'] = "Página Inicial - Controle de Estoque";
         $data['headline'] = "Controle de Estoque";
         $this->load->view('v_header', $data);  
              

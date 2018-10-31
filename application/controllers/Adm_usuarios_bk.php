@@ -23,7 +23,7 @@ class Adm_usuarios_bk extends MY_Controller {
         $data['lista'] = $this->M_usuarios->lista_usuarios();
         $data['funcao'] = $this->M_usuarios->lista_func();
         $data['departamento'] = $this->M_usuarios->get_dep();
-        $data['title'] = "Usuários - Estoque ARS";
+        $data['title'] = "Usuários - Estoque";
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');

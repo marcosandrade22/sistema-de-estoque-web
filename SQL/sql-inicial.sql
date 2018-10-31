@@ -1,23 +1,25 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb2+deb7u4
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
--- Máquina: localhost
--- Data de Criação: 30-Out-2018 às 12:27
--- Versão do servidor: 5.5.49
--- versão do PHP: 5.4.45-0+deb7u4
+-- Host: localhost
+-- Generation Time: 31-Out-2018 às 20:19
+-- Versão do servidor: 10.1.36-MariaDB
+-- versão do PHP: 5.6.38
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de Dados: `estoque_novo`
+-- Database: `estoque2`
 --
 
 -- --------------------------------------------------------
@@ -26,12 +28,11 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `acesso_funcao`
 --
 
-CREATE TABLE IF NOT EXISTS `acesso_funcao` (
+CREATE TABLE `acesso_funcao` (
   `id_funcao_acesso` int(255) NOT NULL,
   `id_acesso_funcao` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 --
 -- Extraindo dados da tabela `acesso_funcao`
 --
@@ -157,12 +158,11 @@ INSERT INTO `acesso_funcao` (`id_funcao_acesso`, `id_acesso_funcao`) VALUES
 -- Estrutura da tabela `acesso_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `acesso_menu` (
+CREATE TABLE `acesso_menu` (
   `menu_id` int(255) NOT NULL,
   `funcao_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 --
 -- Extraindo dados da tabela `acesso_menu`
 --
@@ -180,7 +180,6 @@ INSERT INTO `acesso_menu` (`menu_id`, `funcao_id`) VALUES
 (54, 1),
 (55, 1),
 (56, 1),
-(61, 1),
 (44, 2),
 (50, 3),
 (50, 2),
@@ -209,7 +208,6 @@ INSERT INTO `acesso_menu` (`menu_id`, `funcao_id`) VALUES
 (64, 2),
 (63, 2),
 (63, 3),
-(61, 2),
 (65, 2),
 (26, 2),
 (6, 2),
@@ -220,7 +218,6 @@ INSERT INTO `acesso_menu` (`menu_id`, `funcao_id`) VALUES
 (71, 3),
 (64, 3),
 (6, 3),
-(61, 3),
 (65, 3),
 (26, 3),
 (66, 3),
@@ -256,19 +253,19 @@ INSERT INTO `acesso_menu` (`menu_id`, `funcao_id`) VALUES
 (79, 1);
 
 -- --------------------------------------------------------
+
 --
 -- Estrutura da tabela `ativos`
 --
 
-CREATE TABLE IF NOT EXISTS `ativos` (
-  `id_ativo` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ativos` (
+  `id_ativo` int(255) NOT NULL,
   `nome_ativo` varchar(255) NOT NULL,
   `valor_ativo` varchar(255) NOT NULL,
   `dep_ativo` int(255) NOT NULL,
   `disponivel_ativo` int(255) NOT NULL,
-  `quantidade_ativo` int(255) NOT NULL,
-  PRIMARY KEY (`id_ativo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=106 ;
+  `quantidade_ativo` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -276,11 +273,10 @@ CREATE TABLE IF NOT EXISTS `ativos` (
 -- Estrutura da tabela `departamentos`
 --
 
-CREATE TABLE IF NOT EXISTS `departamentos` (
-  `id_departamento` int(255) NOT NULL AUTO_INCREMENT,
-  `nome_departamento` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_departamento`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+CREATE TABLE `departamentos` (
+  `id_departamento` int(255) NOT NULL,
+  `nome_departamento` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -288,11 +284,10 @@ CREATE TABLE IF NOT EXISTS `departamentos` (
 -- Estrutura da tabela `dep_requisicao`
 --
 
-CREATE TABLE IF NOT EXISTS `dep_requisicao` (
-  `id_dep_req` int(255) NOT NULL AUTO_INCREMENT,
-  `nome_dep_req` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_dep_req`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+CREATE TABLE `dep_requisicao` (
+  `id_dep_req` int(255) NOT NULL,
+  `nome_dep_req` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -300,8 +295,8 @@ CREATE TABLE IF NOT EXISTS `dep_requisicao` (
 -- Estrutura da tabela `estoque`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque` (
-  `id_estoque` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `estoque` (
+  `id_estoque` int(255) NOT NULL,
   `produto_estoque` int(255) NOT NULL,
   `departamento_estoque` int(255) NOT NULL,
   `id_nf_estoque` int(255) NOT NULL,
@@ -313,9 +308,8 @@ CREATE TABLE IF NOT EXISTS `estoque` (
   `preco_estoque` varchar(255) NOT NULL,
   `custo_medio` varchar(255) NOT NULL,
   `custo_entrada` varchar(255) NOT NULL,
-  `data_estoque` date NOT NULL,
-  PRIMARY KEY (`id_estoque`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22343 ;
+  `data_estoque` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -323,8 +317,8 @@ CREATE TABLE IF NOT EXISTS `estoque` (
 -- Estrutura da tabela `estoque_nf`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque_nf` (
-  `id_estoque` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `estoque_nf` (
+  `id_estoque` int(255) NOT NULL,
   `produto_estoque` int(255) NOT NULL,
   `departamento_estoque` int(255) NOT NULL,
   `id_nf_estoque` int(255) NOT NULL,
@@ -334,9 +328,8 @@ CREATE TABLE IF NOT EXISTS `estoque_nf` (
   `saida_estoque` int(255) NOT NULL,
   `tipo_movimento` int(11) NOT NULL,
   `preco_estoque` varchar(255) NOT NULL,
-  `data_estoque` date NOT NULL,
-  PRIMARY KEY (`id_estoque`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6403 ;
+  `data_estoque` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -344,16 +337,15 @@ CREATE TABLE IF NOT EXISTS `estoque_nf` (
 -- Estrutura da tabela `estoque_qt`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque_qt` (
-  `id_qt` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `estoque_qt` (
+  `id_qt` int(255) NOT NULL,
   `id_produto_qt` int(255) NOT NULL,
   `id_dep_qt` int(255) NOT NULL,
   `quantidade_qt` int(255) NOT NULL,
   `ult_custo` varchar(255) NOT NULL,
   `custo_medio` varchar(255) NOT NULL,
-  `preco_venda` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_qt`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=889 ;
+  `preco_venda` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -361,16 +353,15 @@ CREATE TABLE IF NOT EXISTS `estoque_qt` (
 -- Estrutura da tabela `estoque_rq`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque_rq` (
-  `id_est_rq` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `estoque_rq` (
+  `id_est_rq` int(255) NOT NULL,
   `id_req_est` int(255) NOT NULL,
   `id_pro_req_est` int(255) NOT NULL,
   `qt_pro_req_est` int(255) NOT NULL,
   `data_rq` date NOT NULL,
   `departamento_rq` int(255) NOT NULL,
-  `valor_rq` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_est_rq`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18676 ;
+  `valor_rq` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -378,14 +369,13 @@ CREATE TABLE IF NOT EXISTS `estoque_rq` (
 -- Estrutura da tabela `estoque_rq_ativo`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque_rq_ativo` (
-  `id_est_ativo` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `estoque_rq_ativo` (
+  `id_est_ativo` int(255) NOT NULL,
   `id_produto_rq_ativo` int(255) NOT NULL,
   `id_requisicao_rq_ativo` int(255) NOT NULL,
   `qt_rq_ativo` int(255) NOT NULL,
-  `vl_rq_ativo` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_est_ativo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=368 ;
+  `vl_rq_ativo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -393,16 +383,15 @@ CREATE TABLE IF NOT EXISTS `estoque_rq_ativo` (
 -- Estrutura da tabela `estoque_rq_dev`
 --
 
-CREATE TABLE IF NOT EXISTS `estoque_rq_dev` (
-  `id_est_rq` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `estoque_rq_dev` (
+  `id_est_rq` int(255) NOT NULL,
   `id_req_est` int(255) NOT NULL,
   `id_pro_req_est` int(255) NOT NULL,
   `qt_pro_req_est` int(255) NOT NULL,
   `data_rq` date NOT NULL,
   `departamento_rq` int(255) NOT NULL,
-  `valor_rq` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_est_rq`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=200 ;
+  `valor_rq` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -410,14 +399,13 @@ CREATE TABLE IF NOT EXISTS `estoque_rq_dev` (
 -- Estrutura da tabela `fornecedor`
 --
 
-CREATE TABLE IF NOT EXISTS `fornecedor` (
-  `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `fornecedor` (
+  `id_fornecedor` int(11) NOT NULL,
   `cnpj` varchar(255) DEFAULT NULL,
   `razao_social` varchar(100) DEFAULT NULL,
   `telefone` varchar(255) DEFAULT NULL,
-  `ativo` char(1) NOT NULL DEFAULT 'S',
-  PRIMARY KEY (`id_fornecedor`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=167 ;
+  `ativo` char(1) NOT NULL DEFAULT 'S'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -425,13 +413,11 @@ CREATE TABLE IF NOT EXISTS `fornecedor` (
 -- Estrutura da tabela `funcao_programa`
 --
 
-CREATE TABLE IF NOT EXISTS `funcao_programa` (
-  `id_funcao` int(255) NOT NULL AUTO_INCREMENT,
-  `nome_funcao_acesso` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_funcao`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+CREATE TABLE `funcao_programa` (
+  `id_funcao` int(255) NOT NULL,
+  `nome_funcao_acesso` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 --
 -- Extraindo dados da tabela `funcao_programa`
 --
@@ -477,9 +463,8 @@ INSERT INTO `funcao_programa` (`id_funcao`, `nome_funcao_acesso`) VALUES
 -- Estrutura da tabela `funcionarios`
 --
 
-
-CREATE TABLE IF NOT EXISTS `funcionarios` (
-  `id_funcionario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `funcionarios` (
+  `id_funcionario` int(11) NOT NULL,
   `nome_funcionario` varchar(255) NOT NULL,
   `alias_funcionario` varchar(255) NOT NULL,
   `email_funcionario` varchar(255) NOT NULL,
@@ -487,25 +472,27 @@ CREATE TABLE IF NOT EXISTS `funcionarios` (
   `senha_funcionario` varchar(255) NOT NULL,
   `unidade_operacao` int(255) NOT NULL,
   `status` int(255) NOT NULL,
-  `departamento` int(11) NOT NULL,
-  PRIMARY KEY (`id_funcionario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=50 ;
+  `departamento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `funcionarios`
+--
+
+INSERT INTO `funcionarios` (`id_funcionario`, `nome_funcionario`, `alias_funcionario`, `email_funcionario`, `funcao_funcionario`, `senha_funcionario`, `unidade_operacao`, `status`, `departamento`) VALUES
+(1, 'Funcionário Padrão', 'funcionario', 'teste@teste.com', '1', '2e6f9b0d5885b6010f9167787445617f553a735f', 1, 1, 17);
 
 -- --------------------------------------------------------
-INSERT INTO `funcionarios` (`id_funcionario`, `nome_funcionario`, `alias_funcionario`, `email_funcionario`, `funcao_funcionario`, `senha_funcionario`, `unidade_operacao`, `status`, `departamento`) VALUES
-(1, 'Funcionário Padrão', 'funcionario', 'teste@teste.com', '1', '4682a93a8d8ab04ffa07b0e4e1ad6192cd0bafee', 1, 1, 17);
-
 
 --
 -- Estrutura da tabela `funcionarios_funcoes`
 --
 
-CREATE TABLE IF NOT EXISTS `funcionarios_funcoes` (
+CREATE TABLE `funcionarios_funcoes` (
   `funcao_id` int(255) NOT NULL,
   `funcionario_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 --
 -- Extraindo dados da tabela `funcionarios_funcoes`
 --
@@ -515,17 +502,18 @@ INSERT INTO `funcionarios_funcoes` (`funcao_id`, `funcionario_id`) VALUES
 (3, 1),
 (3, 2),
 (2, 3);
+
+-- --------------------------------------------------------
+
 --
 -- Estrutura da tabela `funcoes`
 --
 
-CREATE TABLE IF NOT EXISTS `funcoes` (
-  `id_funcao` int(255) NOT NULL AUTO_INCREMENT,
-  `nome_funcao` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_funcao`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+CREATE TABLE `funcoes` (
+  `id_funcao` int(255) NOT NULL,
+  `nome_funcao` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
 --
 -- Extraindo dados da tabela `funcoes`
 --
@@ -538,31 +526,29 @@ INSERT INTO `funcoes` (`id_funcao`, `nome_funcao`) VALUES
 (6, 'Departamental'),
 (7, 'Secretaria');
 
+-- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `item_pedido`
 --
 
-CREATE TABLE IF NOT EXISTS `item_pedido` (
-  `id_item_pedido` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `item_pedido` (
+  `id_item_pedido` int(11) NOT NULL,
   `quantidade` int(11) NOT NULL,
   `cod_pedido` int(11) NOT NULL,
   `cod_produto` int(11) NOT NULL,
   `flag_baixa` char(1) NOT NULL DEFAULT 'A',
-  `obs` varchar(180) NOT NULL,
-  PRIMARY KEY (`id_item_pedido`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `obs` varchar(180) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Triggers `item_pedido`
+-- Acionadores `item_pedido`
 --
-DROP TRIGGER IF EXISTS `TR_altera_pedido_estoque`;
-DELIMITER //
-CREATE TRIGGER `TR_altera_pedido_estoque` AFTER UPDATE ON `item_pedido`
- FOR EACH ROW BEGIN 
+DELIMITER $$
+CREATE TRIGGER `TR_altera_pedido_estoque` AFTER UPDATE ON `item_pedido` FOR EACH ROW BEGIN 
 	CALL SP_AtualizaEstoque(new.cod_produto, new.quantidade* -1, new.flag_baixa, new.cod_pedido);
 END
-//
+$$
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -571,21 +557,16 @@ DELIMITER ;
 -- Estrutura da tabela `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id_menu` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `menu` (
+  `id_menu` int(255) NOT NULL,
   `nome_menu` varchar(255) NOT NULL,
   `tipo_menu` int(11) NOT NULL,
   `apelido` varchar(255) NOT NULL,
   `pai_menu` int(255) NOT NULL,
   `link_menu` varchar(255) NOT NULL,
   `acesso_menu` int(255) NOT NULL,
-  `ordem_menu` int(255) NOT NULL,
-  PRIMARY KEY (`id_menu`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=80 ;
-
-
-
--- --------------------------------------------------------
+  `ordem_menu` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `menu`
@@ -604,7 +585,6 @@ INSERT INTO `menu` (`id_menu`, `nome_menu`, `tipo_menu`, `apelido`, `pai_menu`, 
 (55, 'Retorno', 2, '', 47, 'gerar_remessa/retorno', 0, 0),
 (56, 'Relatórios de pagamento', 2, '', 47, 'adm_relatorios', 0, 0),
 (58, 'Adm. Menus', 2, 'adm_menus', 44, 'adm_menus', 0, 0),
-(61, 'Cadastro', 2, 'estoque/produtos', 6, 'estoque/Produtos', 0, 0),
 (62, 'Nota Fiscal', 1, 'nota_fiscal', 0, '#', 0, 2),
 (63, 'Listagem', 2, 'nota_fiscal', 62, 'nota_fiscal', 0, 0),
 (64, 'Fornecedores', 2, 'fornecedores', 62, 'nota_fiscal/fornecedores', 0, 0),
@@ -626,11 +606,18 @@ INSERT INTO `menu` (`id_menu`, `nome_menu`, `tipo_menu`, `apelido`, `pai_menu`, 
 -- Estrutura da tabela `menu_sub`
 --
 
-CREATE TABLE IF NOT EXISTS `menu_sub` (
-  `id_pai` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_pai` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_pai`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+CREATE TABLE `menu_sub` (
+  `id_pai` int(11) NOT NULL,
+  `tipo_pai` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `menu_sub`
+--
+
+INSERT INTO `menu_sub` (`id_pai`, `tipo_pai`) VALUES
+(1, 'Principal'),
+(2, 'Sub-Menu');
 
 -- --------------------------------------------------------
 
@@ -638,17 +625,15 @@ CREATE TABLE IF NOT EXISTS `menu_sub` (
 -- Estrutura da tabela `nota`
 --
 
-CREATE TABLE IF NOT EXISTS `nota` (
-  `cod_nota` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `nota` (
+  `cod_nota` int(11) NOT NULL,
   `numero_nota` varchar(10) NOT NULL,
   `serie_nota` varchar(255) NOT NULL,
   `id_fornecedor` int(11) DEFAULT NULL,
   `data_nota` date NOT NULL,
   `fechado` tinyint(1) NOT NULL,
-  `departamento_nota` int(255) NOT NULL,
-  PRIMARY KEY (`cod_nota`),
-  KEY `id_fornecedor` (`id_fornecedor`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1219 ;
+  `departamento_nota` int(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -656,17 +641,16 @@ CREATE TABLE IF NOT EXISTS `nota` (
 -- Estrutura da tabela `produtos`
 --
 
-CREATE TABLE IF NOT EXISTS `produtos` (
-  `id_produto` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `produtos` (
+  `id_produto` int(255) NOT NULL,
   `cod_barras` bigint(255) NOT NULL,
   `nome_produto` varchar(255) NOT NULL,
   `descricao_produto` longtext NOT NULL,
   `departamento_produto` int(255) NOT NULL,
   `preco_venda` varchar(255) NOT NULL,
   `qt_produto` int(255) NOT NULL,
-  `imagem_produto` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_produto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2707 ;
+  `imagem_produto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -674,16 +658,15 @@ CREATE TABLE IF NOT EXISTS `produtos` (
 -- Estrutura da tabela `requisicao`
 --
 
-CREATE TABLE IF NOT EXISTS `requisicao` (
-  `id_requisicao` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `requisicao` (
+  `id_requisicao` int(255) NOT NULL,
   `nome_requisicao` varchar(255) NOT NULL,
   `dep_requisicao` int(255) NOT NULL,
   `dep_cedente` int(255) NOT NULL,
   `data_requisicao` date NOT NULL,
   `fechado` int(255) NOT NULL,
-  `tipo_requisicao` int(255) NOT NULL,
-  PRIMARY KEY (`id_requisicao`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9187 ;
+  `tipo_requisicao` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -691,17 +674,16 @@ CREATE TABLE IF NOT EXISTS `requisicao` (
 -- Estrutura da tabela `requisicao_ativo`
 --
 
-CREATE TABLE IF NOT EXISTS `requisicao_ativo` (
-  `id_rq_ativo` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `requisicao_ativo` (
+  `id_rq_ativo` int(255) NOT NULL,
   `nome_rq_ativo` varchar(255) NOT NULL,
   `data_saida` date NOT NULL,
   `data_retorno` varchar(255) NOT NULL,
   `status_rq_ativo` int(255) NOT NULL,
   `dep_rq_ativo` int(255) NOT NULL,
   `devolvido` int(255) NOT NULL,
-  `data_devolucao` date NOT NULL,
-  PRIMARY KEY (`id_rq_ativo`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=93 ;
+  `data_devolucao` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -709,7 +691,7 @@ CREATE TABLE IF NOT EXISTS `requisicao_ativo` (
 -- Estrutura da tabela `TABLE 20`
 --
 
-CREATE TABLE IF NOT EXISTS `TABLE 20` (
+CREATE TABLE `TABLE 20` (
   `COL 1` varchar(10) DEFAULT NULL,
   `COL 2` int(3) DEFAULT NULL,
   `COL 3` varchar(6) DEFAULT NULL,
@@ -726,11 +708,10 @@ CREATE TABLE IF NOT EXISTS `TABLE 20` (
 -- Estrutura da tabela `tipo_requisicao`
 --
 
-CREATE TABLE IF NOT EXISTS `tipo_requisicao` (
-  `id_tipo_requisicao` int(255) NOT NULL AUTO_INCREMENT,
-  `nome_tipo_requisicao` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_tipo_requisicao`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+CREATE TABLE `tipo_requisicao` (
+  `id_tipo_requisicao` int(255) NOT NULL,
+  `nome_tipo_requisicao` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -738,7 +719,7 @@ CREATE TABLE IF NOT EXISTS `tipo_requisicao` (
 -- Estrutura da tabela `usuario_dep`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario_dep` (
+CREATE TABLE `usuario_dep` (
   `dep_user` int(255) NOT NULL,
   `user_user` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -747,8 +728,9 @@ CREATE TABLE IF NOT EXISTS `usuario_dep` (
 
 --
 -- Stand-in structure for view `visao_estoque`
+-- (See below for the actual view)
 --
-CREATE TABLE IF NOT EXISTS `visao_estoque` (
+CREATE TABLE `visao_estoque` (
 `custo_visao` varchar(255)
 ,`ult_custo_visao` varchar(255)
 ,`id_visao` int(255)
@@ -758,12 +740,14 @@ CREATE TABLE IF NOT EXISTS `visao_estoque` (
 ,`visao_dep` varchar(255)
 ,`visao_quantidade` int(255)
 );
+
 -- --------------------------------------------------------
 
 --
 -- Stand-in structure for view `visao_nota`
+-- (See below for the actual view)
 --
-CREATE TABLE IF NOT EXISTS `visao_nota` (
+CREATE TABLE `visao_nota` (
 `serie_visao` varchar(255)
 ,`visao_nota` int(11)
 ,`numero_visao` varchar(10)
@@ -771,6 +755,7 @@ CREATE TABLE IF NOT EXISTS `visao_nota` (
 ,`fechado_visao` tinyint(1)
 ,`fornecedor_visao` varchar(100)
 );
+
 -- --------------------------------------------------------
 
 --
@@ -778,7 +763,7 @@ CREATE TABLE IF NOT EXISTS `visao_nota` (
 --
 DROP TABLE IF EXISTS `visao_estoque`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `visao_estoque` AS select `estoque_qt`.`custo_medio` AS `custo_visao`,`estoque_qt`.`ult_custo` AS `ult_custo_visao`,`estoque_qt`.`id_qt` AS `id_visao`,`produtos`.`cod_barras` AS `visao_cod_barra`,`estoque_qt`.`id_produto_qt` AS `visao_cod`,`produtos`.`nome_produto` AS `visao_nome`,`departamentos`.`nome_departamento` AS `visao_dep`,`estoque_qt`.`quantidade_qt` AS `visao_quantidade` from ((`estoque_qt` join `produtos` on((`estoque_qt`.`id_produto_qt` = `produtos`.`id_produto`))) join `departamentos` on((`estoque_qt`.`id_dep_qt` = `departamentos`.`id_departamento`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `visao_estoque`  AS  select `estoque_qt`.`custo_medio` AS `custo_visao`,`estoque_qt`.`ult_custo` AS `ult_custo_visao`,`estoque_qt`.`id_qt` AS `id_visao`,`produtos`.`cod_barras` AS `visao_cod_barra`,`estoque_qt`.`id_produto_qt` AS `visao_cod`,`produtos`.`nome_produto` AS `visao_nome`,`departamentos`.`nome_departamento` AS `visao_dep`,`estoque_qt`.`quantidade_qt` AS `visao_quantidade` from ((`estoque_qt` join `produtos` on((`estoque_qt`.`id_produto_qt` = `produtos`.`id_produto`))) join `departamentos` on((`estoque_qt`.`id_dep_qt` = `departamentos`.`id_departamento`))) ;
 
 -- --------------------------------------------------------
 
@@ -787,7 +772,269 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `visao_nota`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `visao_nota` AS select `nota`.`serie_nota` AS `serie_visao`,`nota`.`cod_nota` AS `visao_nota`,`nota`.`numero_nota` AS `numero_visao`,`nota`.`data_nota` AS `data_visao`,`nota`.`fechado` AS `fechado_visao`,`fornecedor`.`razao_social` AS `fornecedor_visao` from (`nota` join `fornecedor` on((`nota`.`id_fornecedor` = `fornecedor`.`id_fornecedor`)));
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `visao_nota`  AS  select `nota`.`serie_nota` AS `serie_visao`,`nota`.`cod_nota` AS `visao_nota`,`nota`.`numero_nota` AS `numero_visao`,`nota`.`data_nota` AS `data_visao`,`nota`.`fechado` AS `fechado_visao`,`fornecedor`.`razao_social` AS `fornecedor_visao` from (`nota` join `fornecedor` on((`nota`.`id_fornecedor` = `fornecedor`.`id_fornecedor`))) ;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ativos`
+--
+ALTER TABLE `ativos`
+  ADD PRIMARY KEY (`id_ativo`);
+
+--
+-- Indexes for table `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD PRIMARY KEY (`id_departamento`);
+
+--
+-- Indexes for table `dep_requisicao`
+--
+ALTER TABLE `dep_requisicao`
+  ADD PRIMARY KEY (`id_dep_req`);
+
+--
+-- Indexes for table `estoque`
+--
+ALTER TABLE `estoque`
+  ADD PRIMARY KEY (`id_estoque`);
+
+--
+-- Indexes for table `estoque_nf`
+--
+ALTER TABLE `estoque_nf`
+  ADD PRIMARY KEY (`id_estoque`);
+
+--
+-- Indexes for table `estoque_qt`
+--
+ALTER TABLE `estoque_qt`
+  ADD PRIMARY KEY (`id_qt`);
+
+--
+-- Indexes for table `estoque_rq`
+--
+ALTER TABLE `estoque_rq`
+  ADD PRIMARY KEY (`id_est_rq`);
+
+--
+-- Indexes for table `estoque_rq_ativo`
+--
+ALTER TABLE `estoque_rq_ativo`
+  ADD PRIMARY KEY (`id_est_ativo`);
+
+--
+-- Indexes for table `estoque_rq_dev`
+--
+ALTER TABLE `estoque_rq_dev`
+  ADD PRIMARY KEY (`id_est_rq`);
+
+--
+-- Indexes for table `fornecedor`
+--
+ALTER TABLE `fornecedor`
+  ADD PRIMARY KEY (`id_fornecedor`);
+
+--
+-- Indexes for table `funcao_programa`
+--
+ALTER TABLE `funcao_programa`
+  ADD PRIMARY KEY (`id_funcao`);
+
+--
+-- Indexes for table `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  ADD PRIMARY KEY (`id_funcionario`);
+
+--
+-- Indexes for table `funcoes`
+--
+ALTER TABLE `funcoes`
+  ADD PRIMARY KEY (`id_funcao`);
+
+--
+-- Indexes for table `item_pedido`
+--
+ALTER TABLE `item_pedido`
+  ADD PRIMARY KEY (`id_item_pedido`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indexes for table `menu_sub`
+--
+ALTER TABLE `menu_sub`
+  ADD PRIMARY KEY (`id_pai`);
+
+--
+-- Indexes for table `nota`
+--
+ALTER TABLE `nota`
+  ADD PRIMARY KEY (`cod_nota`),
+  ADD KEY `id_fornecedor` (`id_fornecedor`);
+
+--
+-- Indexes for table `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`id_produto`);
+
+--
+-- Indexes for table `requisicao`
+--
+ALTER TABLE `requisicao`
+  ADD PRIMARY KEY (`id_requisicao`);
+
+--
+-- Indexes for table `requisicao_ativo`
+--
+ALTER TABLE `requisicao_ativo`
+  ADD PRIMARY KEY (`id_rq_ativo`);
+
+--
+-- Indexes for table `tipo_requisicao`
+--
+ALTER TABLE `tipo_requisicao`
+  ADD PRIMARY KEY (`id_tipo_requisicao`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `ativos`
+--
+ALTER TABLE `ativos`
+  MODIFY `id_ativo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+
+--
+-- AUTO_INCREMENT for table `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `id_departamento` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `dep_requisicao`
+--
+ALTER TABLE `dep_requisicao`
+  MODIFY `id_dep_req` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `estoque`
+--
+ALTER TABLE `estoque`
+  MODIFY `id_estoque` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22343;
+
+--
+-- AUTO_INCREMENT for table `estoque_nf`
+--
+ALTER TABLE `estoque_nf`
+  MODIFY `id_estoque` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6403;
+
+--
+-- AUTO_INCREMENT for table `estoque_qt`
+--
+ALTER TABLE `estoque_qt`
+  MODIFY `id_qt` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=889;
+
+--
+-- AUTO_INCREMENT for table `estoque_rq`
+--
+ALTER TABLE `estoque_rq`
+  MODIFY `id_est_rq` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18676;
+
+--
+-- AUTO_INCREMENT for table `estoque_rq_ativo`
+--
+ALTER TABLE `estoque_rq_ativo`
+  MODIFY `id_est_ativo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=368;
+
+--
+-- AUTO_INCREMENT for table `estoque_rq_dev`
+--
+ALTER TABLE `estoque_rq_dev`
+  MODIFY `id_est_rq` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+
+--
+-- AUTO_INCREMENT for table `fornecedor`
+--
+ALTER TABLE `fornecedor`
+  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+
+--
+-- AUTO_INCREMENT for table `funcao_programa`
+--
+ALTER TABLE `funcao_programa`
+  MODIFY `id_funcao` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT for table `funcionarios`
+--
+ALTER TABLE `funcionarios`
+  MODIFY `id_funcionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT for table `funcoes`
+--
+ALTER TABLE `funcoes`
+  MODIFY `id_funcao` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `item_pedido`
+--
+ALTER TABLE `item_pedido`
+  MODIFY `id_item_pedido` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id_menu` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
+--
+-- AUTO_INCREMENT for table `menu_sub`
+--
+ALTER TABLE `menu_sub`
+  MODIFY `id_pai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `nota`
+--
+ALTER TABLE `nota`
+  MODIFY `cod_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1219;
+
+--
+-- AUTO_INCREMENT for table `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `id_produto` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2707;
+
+--
+-- AUTO_INCREMENT for table `requisicao`
+--
+ALTER TABLE `requisicao`
+  MODIFY `id_requisicao` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9187;
+
+--
+-- AUTO_INCREMENT for table `requisicao_ativo`
+--
+ALTER TABLE `requisicao_ativo`
+  MODIFY `id_rq_ativo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+
+--
+-- AUTO_INCREMENT for table `tipo_requisicao`
+--
+ALTER TABLE `tipo_requisicao`
+  MODIFY `id_tipo_requisicao` int(255) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

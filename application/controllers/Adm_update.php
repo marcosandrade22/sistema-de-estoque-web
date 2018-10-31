@@ -20,7 +20,7 @@ class Adm_update extends MY_Controller {
         
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Atualização";
-        $data['title'] = "Atualização - Estoque ARS";
+        $data['title'] = "Atualização - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);

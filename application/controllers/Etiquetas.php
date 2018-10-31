@@ -21,7 +21,7 @@ class Etiquetas extends MY_Controller {
         if(Controleacesso::acesso($controller) == true){
             
         $data['pagina'] = "Etiquetas";
-        $data['title'] = "Etiquetas - Estoque ARS";
+        $data['title'] = "Etiquetas - Estoque";
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
        $data['lista'] = $this->M_produto->lista_produto();

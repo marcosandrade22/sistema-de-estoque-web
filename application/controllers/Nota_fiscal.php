@@ -19,7 +19,7 @@ class Nota_fiscal extends MY_Controller {
         
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Nota Fiscal";
-        $data['title'] = "Nota Fiscal - Estoque ARS";
+        $data['title'] = "Nota Fiscal - Estoque";
         $data['fornecedor'] = $this->M_nota->listNota();
         $data['fornecedor2'] = $this->M_nota->ListaFor();
         $data['departamento'] = $this->M_nota->ListaDep();
@@ -43,7 +43,7 @@ class Nota_fiscal extends MY_Controller {
         
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Fornecedores";
-        $data['title'] = "Fornecedores - Estoque ARS";
+        $data['title'] = "Fornecedores - Estoque";
         $data['fornecedor'] = $this->M_nota->listFor();
         $this->load->model('Getuser');
         $this->load->helper('url');
@@ -108,7 +108,7 @@ class Nota_fiscal extends MY_Controller {
       public function gera_pdf($id){
         $this->load->model('M_nota', '', TRUE);
          $data['pagina'] = "Nota Fiscal - Adicionar Itens";
-        $data['title'] = "Nota Fiscal - Estoque ARS";
+        $data['title'] = "Nota Fiscal - Estoque";
        
          $data['nf'] = $this->M_nota->get_nota($id);
         //$data['produtos'] = $this->M_nota->listProduto();
@@ -128,7 +128,7 @@ class Nota_fiscal extends MY_Controller {
         $this->load->model('M_nota', '', TRUE);
        // $data['funcao'] = $this->Getuser->get_funcao('funcoes', )
         $data['pagina'] = "Nota Fiscal - Adicionar Itens";
-        $data['title'] = "Nota Fiscal - Estoque ARS";
+        $data['title'] = "Nota Fiscal - Estoque";
         $data['nf'] = $this->M_nota->get_nota($id);
         //$data['produtos'] = $this->M_nota->listProduto();
         $data['departamentos'] = $this->M_nota->listDep();

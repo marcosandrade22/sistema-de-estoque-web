@@ -5,15 +5,15 @@ class Home extends MY_Controller {
 	public function Home()  {
 		parent::__construct();
 		//$this->check_isvalidated();
-               
+
 	}
-	
+
 	/*private function check_isvalidated(){
         if(! $this->session->userdata('validated')){
             redirect('login');
         }
     }*/
-	
+
 	public function sair(){
         $this->session->sess_destroy();
         redirect('login');
@@ -27,7 +27,7 @@ class Home extends MY_Controller {
             //$this->output->enable_profiler(TRUE);
             $this->load->model('M_home');
         $this->load->model('Getuser');
-        $data['title'] = "Página Inicial - Controle de Estoque ARS";
+        $data['title'] = "Página Inicial - Controle de Estoque ";
         $data['headline'] = "Controle de Estoque";
         //$data['include'] = "estoque_index";
         $data['resumo'] = $this->M_home->resumo_estoque();
@@ -38,7 +38,7 @@ class Home extends MY_Controller {
 	//$this->load->view('template', $data);
         //$this->load->view('template_lista', $data);
         }
-        
+
        function listar()
 	{
            $this->load->model('M_produto','',TRUE);
@@ -46,7 +46,7 @@ class Home extends MY_Controller {
             $table = $this->table->generate($qry);
             $tmpl = array ( 'table_open'  => '<table id="tabela" class="table table-striped table-responsive">' );
             $this->table->set_template($tmpl);
-            $this->table->set_empty("&nbsp;"); 
+            $this->table->set_empty("&nbsp;");
             $this->table->set_heading('Editar', 'Codigo', 'Nome', 'Categoria', 'Unidade',  'Excluir');
             $table_row = array();
 		foreach ($qry->result() as $produto)
@@ -58,10 +58,10 @@ class Home extends MY_Controller {
 			$table_row[] = $produto->departamento_produto;
 			$table_row[] = $produto->quantidade_produto;
 			//$table_row[] = $produto->qtd_minima;
-			$table_row[] = anchor('produto/delete/' . $produto->id_produto, '<span class="ui-icon ui-icon-trash"></span>', 
+			$table_row[] = anchor('produto/delete/' . $produto->id_produto, '<span class="ui-icon ui-icon-trash"></span>',
 							"onClick=\" return confirm('Tem certeza que deseja remover o registro?')\"");
 			$this->table->add_row($table_row);
-		}    
+		}
 		$table = $this->table->generate();
 		$data['title'] = "Listagem de Produtos - Controle de Estoque";
 		$data['headline'] = "Listagem de Produtos";

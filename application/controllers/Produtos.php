@@ -18,7 +18,7 @@ class Produtos extends MY_Controller {
         if(Controleacesso::acesso($controller) == true){
             
         $data['pagina'] = "Produtos";
-        $data['title'] = "Produtos - Estoque ARS";
+        $data['title'] = "Produtos - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);

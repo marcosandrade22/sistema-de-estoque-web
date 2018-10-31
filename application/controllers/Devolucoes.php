@@ -19,7 +19,7 @@ class Devolucoes extends MY_Controller {
               
         $this->load->model('M_devolucao', '', TRUE);
         $data['pagina'] = "Devoluções";
-        $data['title'] = "Devoluções - Estoque ARS";
+        $data['title'] = "Devoluções - Estoque";
         $data['fornecedor'] = $this->M_devolucao->listNota();
         $data['fornecedor2'] = $this->M_devolucao->ListaFor();
         $this->load->model('Getuser');
@@ -39,7 +39,7 @@ class Devolucoes extends MY_Controller {
     {
         $this->load->model('M_devolucao', '', TRUE);
         $data['pagina'] = "Fornecedores";
-        $data['title'] = "Fornecedores - Estoque ARS";
+        $data['title'] = "Fornecedores - Estoque";
         $data['fornecedor'] = $this->M_nota->listFor();
         $this->load->model('Getuser');
         $this->load->helper('url');
@@ -101,7 +101,7 @@ class Devolucoes extends MY_Controller {
         $this->load->model('M_devolucao', '', TRUE);
        // $data['funcao'] = $this->Getuser->get_funcao('funcoes', )
         $data['pagina'] = "Nota Fiscal - Adicionar Itens";
-        $data['title'] = "Nota Fiscal - Estoque ARS";
+        $data['title'] = "Nota Fiscal - Estoque";
         $data['nf'] = $this->M_nota->get_nota($id);
         $data['produtos'] = $this->M_nota->listProduto();
         $data['departamentos'] = $this->M_nota->listDep();

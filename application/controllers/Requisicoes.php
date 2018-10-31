@@ -28,7 +28,7 @@ class Requisicoes extends MY_Controller {
         $data['tipo'] = $this->requisicao->lista_tipo_rq();
             
         $data['pagina'] = "Requisições";
-        $data['title'] = "Requisições - Estoque ARS";
+        $data['title'] = "Requisições - Estoque";
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -63,7 +63,7 @@ class Requisicoes extends MY_Controller {
         $data['dep'] = $this->requisicao->lista_dep_req();
         $data['dep_ced'] = $this->requisicao->lista_dep_req();
         $data['tipo'] = $this->requisicao->lista_tipo_rq();
-        $data['title'] = "Requisições - Estoque ARS";
+        $data['title'] = "Requisições - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -95,7 +95,7 @@ class Requisicoes extends MY_Controller {
         $data['dep'] = $this->requisicao->lista_dep_req();
         $data['dep_ced'] = $this->requisicao->lista_dep_req();
         $data['tipo'] = $this->requisicao->lista_tipo_rq();
-        $data['title'] = "Requisições - Estoque ARS";
+        $data['title'] = "Requisições - Estoque";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -272,7 +272,7 @@ class Requisicoes extends MY_Controller {
         $this->load->model('M_requisicao', '', TRUE);
        // $data['funcao'] = $this->Getuser->get_funcao('funcoes', )
         $data['pagina'] = "Requisição - Adicionar Itens";
-        $data['title'] = "Requisição - Estoque ARS";
+        $data['title'] = "Requisição - Estoque";
         $data['nf'] = $this->M_requisicao->get_requisicao($id);
         $data['id'] = $id;
         //$data['produtos'] = $this->M_requisicao->listProdutoDep($id);
@@ -667,7 +667,7 @@ class Requisicoes extends MY_Controller {
         $data['dep'] = $this->M_requisicao->lista_dep_req();
         
         $data['pagina'] = "Relatório de Requisição";
-       $data['title'] = "Relatório de Requisição - Estoque ARS";
+       $data['title'] = "Relatório de Requisição - Estoque";
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
         $this->load->view('v_filtra_relatorio_rq', $data);
@@ -691,7 +691,7 @@ class Requisicoes extends MY_Controller {
         $data['lista'] = $this->requisicao->lista_requisicoes();
         $data['dep'] = $this->requisicao->lista_dep_req();
         $data['dep_ced'] = $this->requisicao->lista_dep_req();
-        $data['title'] = "Requisições - Estoque ARS";
+        $data['title'] = "Requisições - Estoque";
        $this->load->view('v_header',$data);
         $this->load->view('v_menu');
         $this->load->view('v_nova_rq', $data); 

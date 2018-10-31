@@ -7,7 +7,7 @@ class Adm_acesso extends MY_Controller {
 	  						$this->load->model('M_configuracoes');
                 $this->load->helper('url');
                 $this->load->library('grocery_CRUD');
-                $this->load->model('controleacesso');
+                $this->load->model('Controleacesso');
 	}
 
 
@@ -30,24 +30,21 @@ class Adm_acesso extends MY_Controller {
 
 	// controle de acesso
         $controller="adm_acesso";
-             if(Controleacesso::acesso($controller) == true){
-
+             if($this->Controleacesso->acesso($controller) == true){
             try{
 			$crud = new grocery_CRUD();
-
 			$crud->set_theme('datatables');
 			$crud->set_table('funcao_programa');
 			$crud->set_subject('Funcao');
-                        //$crud->where('id_pai','1');
-			$crud->required_fields('id_funcao');
-      $crud->set_relation_n_n( 'acesso_funcao', 'acesso_funcao','funcoes', 'id_acesso_funcao','id_funcao_acesso' ,'nome_funcao');
-      $crud->columns('id_funcao','nome_funcao_acesso', 'acesso_funcao');
-        if($this->session->userdata("Funcao") == 1){    }
-            else{
-                $crud->unset_add();
-                $crud->unset_delete();
-                $crud->unset_edit();
-            }
+                        $crud->required_fields('id_funcao');
+      			$crud->set_relation_n_n( 'acesso_funcao', 'acesso_funcao','funcoes', 'id_acesso_funcao','id_funcao_acesso' ,'nome_funcao');
+      			$crud->columns('id_funcao','nome_funcao_acesso', 'acesso_funcao');
+        		if($this->session->userdata("Funcao") == 1){    }
+            		else{
+			$crud->unset_add();
+                	$crud->unset_delete();
+                	$crud->unset_edit();
+           		 }
 			$output = $crud->render();
 			$this->_example_output($output);
 
@@ -66,8 +63,7 @@ class Adm_acesso extends MY_Controller {
 
             $this->load->model('controleacesso');
             $controller="adm_menus";
-             if(Controleacesso::acesso($controller) == true){
-
+             if($this->Controleacesso->acesso($controller) == true){
             try{
 			$crud = new grocery_CRUD();
 

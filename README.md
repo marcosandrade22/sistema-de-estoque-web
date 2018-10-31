@@ -9,4 +9,7 @@ Instalação
   /application/config/config.php (url do seu site)
   /application/config/database.php (dados do seu banco)
   
-4 - Alterar a senha do usuário na tabela funcionários utilizando SHA1
+4 - Usuário e senha inicial
+
+Usuario : teste@teste.com 
+Senha: teste

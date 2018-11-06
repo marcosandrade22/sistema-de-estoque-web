@@ -1,38 +1,11 @@
-<link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/buttons.dataTables.css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/shCore.css?>')?>">
-
-<style type="text/css" class="init"></style>
-  
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery-1.12.3.min.js')?>">	</script>
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery.dataTables.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/shCore.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/demo.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.buttons.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.flash.js')?>"> </script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.html5.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.print.js')?>">	</script>
-	
-	
 <script type="text/javascript" language="javascript" class="init">
- $(document).ready(function() {           
+ $(document).ready(function() {
          table = $('#requisicoes').DataTable({
         dom: 'Blfrtip',
         buttons: [
              { extend: 'copy', text: 'Copiar' }, 'csv', 'excel',  'print'
         ],
-        
+
         "oLanguage": {
     "sProcessing": "Aguarde enquanto os dados são carregados ...",
     "sLengthMenu": "Mostrar _MENU_ registros por pagina",
@@ -47,13 +20,13 @@
        "sNext":     "Próximo",
        "sLast":     "Último"
     }
- } 
+ }
   });
 } );
 </script>
     <script>
-     
-   
+
+
   $(function() {
     $( ".datepicker" ).datepicker({
         dateFormat: 'yy-mm-dd',
@@ -65,7 +38,7 @@
 
         });
   });
-  
+
     $(function() {
     $( "#datepicker2" ).datepicker({
         dateFormat: 'yy-mm-dd',
@@ -78,17 +51,17 @@
         });
   });
   </script>
-<body>
-    
- 
-    <div class="container margin-top" >
-      
- 
+  <div class="content">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+            <div class="card ">
+
+              <div class="header">
+                <button class="btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
         <h3><?php echo $pagina ?></h3>
-        <br />
-        <!--<a href="requisicoes/add_rq"><button class="btn btn-success" ><i class="glyphicon glyphicon-plus"></i>Nova Requisição</button></a>-->
-      
-        
+      </div>
+      <div class="content">
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Recarregar</button>
         <br />
         <br />
@@ -101,7 +74,7 @@
                     <th>Dep. Solicitante</th>
                    <th>Tipo</th>
                     <th>Itens</th>
-                   
+
                 </tr>
             </thead>
             <tbody>
@@ -119,17 +92,17 @@
                             echo 'Venda';
                         }
                         ?></td>
-                    
+
                        <td>
-                           <?php if($lista->fechado == 0){ 
-                               
+                           <?php if($lista->fechado == 0){
+
                                 if(Controleacesso::acesso_funcao(19) == true){
                                 echo '<a href="requisicoes/add_itens/'.$lista->id_requisicao.'" class="btn btn btn-sm btn-primary" ><i class="glyphicon glyphicon-plus"></i> Itens </a>';
                                 }else{};
-                                
+
                                 }
                                 else{ ?>
-                             
+
                            <a class="btn btn-sm disabled btn-danger" >Requisição fechada</a>
                                 <?php if(Controleacesso::acesso_funcao(20) == true){
                                 echo '<a href="requisicoes/add_itens/'.$lista->id_requisicao.'" class="btn btn btn-sm btn-success" ><i class="glyphicon glyphicon-search"></i> Visualizar </a> ';
@@ -138,12 +111,12 @@
                                     ?>
                         <?php } ?>
                        </td>
-                       
+
                 </tr>
-                
+
                 <?php endforeach; ?>
             </tbody>
- 
+
             <tfoot>
             <tr>
                  <th>Número</th>
@@ -155,16 +128,22 @@
              </tr>
             </tfoot>
         </table>
-    </div>
- 
- 
+      </div>
+      </div>
+</div>
+</div>
+</div>
+</div>
 
- 
+
+
+
+
 <script type="text/javascript">
- 
+
 var save_method; //for save method string
 var table;
- 
+
 $(document).ready(function() {
  $.fn.dataTable.ext.errMode = 'throw';
     //datatables
@@ -173,7 +152,7 @@ $(document).ready(function() {
         buttons: [
              { extend: 'copy', text: 'Copiar' }, 'csv', 'excel',  'print'
         ],
-        
+
         "oLanguage": {
     "sProcessing": "Aguarde enquanto os dados são carregados ...",
     "sLengthMenu": "Mostrar _MENU_ registros por pagina",
@@ -189,17 +168,17 @@ $(document).ready(function() {
        "sLast":     "Último"
     }
  } ,
- 
+
         "processing": true, //Feature control the processing indicator.
         "serverSide": true, //Feature control DataTables' server-side processing mode.
         "order": [], //Initial no order.
- 
+
         // Load data for the table's content from an Ajax source
         "ajax": {
             "url": "<?php echo site_url('requisicoes/ajax_list')?>",
             "type": "POST"
         },
- 
+
         //Set column definition initialisation properties.
         "columnDefs": [
         {
@@ -207,10 +186,10 @@ $(document).ready(function() {
             "orderable": false, //set not orderable
         },
         ],
- 
+
     });
- 
- 
+
+
     //datepicker
     $('.datepicker').datepicker({
         autoclose: true,
@@ -218,9 +197,9 @@ $(document).ready(function() {
         todayHighlight: true,
         orientation: "top auto",
         todayBtn: true,
-        todayHighlight: true,  
+        todayHighlight: true,
     });
- 
+
     //set input/textarea/select event when change value, remove class error and remove text help block
     $("input").change(function(){
         $(this).parent().parent().removeClass('has-error');
@@ -234,11 +213,11 @@ $(document).ready(function() {
         $(this).parent().parent().removeClass('has-error');
         $(this).next().empty();
     });
- 
+
 });
- 
- 
- 
+
+
+
 function add_produtos()
 {
     save_method = 'add';
@@ -248,14 +227,14 @@ function add_produtos()
     $('#modal_form').modal('show'); // show bootstrap modal
     $('.modal-title').text('Requisição'); // Set Title to Bootstrap modal title
 }
- 
+
 function edit_produtos(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
- 
+
     //Ajax Load data from ajax
     $.ajax({
         url : "<?php echo site_url('requisicoes/ajax_edit/')?>/" + id,
@@ -268,10 +247,10 @@ function edit_produtos(id)
              $('[name="dep_requisicao"]').val(data.dep_requisicao);
             $('[name="tipo_requisicao"]').val(data.tipo_requisicao);
             $('[name="data_requisicao"]').val(data.data_requisicao);
-           
+
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Editar Requisicao'); // Set title to Bootstrap modal title
- 
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -279,7 +258,7 @@ function edit_produtos(id)
         }
     });
 }
- 
+
 function reload_table()
 {
     //table.ajax.reload(null,false); //reload datatable ajax
@@ -287,14 +266,14 @@ function reload_table()
 }
  function save_add(){
      document.getElementById("form").submit();
-     
+
     }
 function save()
 {
     $('#btnSave').text('Salvando...'); //change button text
     $('#btnSave').attr('disabled',true); //set button disable
     var url;
- 
+
     if(save_method == 'add') {
         //url = "<?php // echo site_url('requisicoes/ajax_add')?>";
         document.getElementById("form").submit();
@@ -308,11 +287,11 @@ function save()
         dataType: "JSON",
         success: function(data)
         {
- 
+
             if(data.status) //if success close modal and reload ajax table
             {
                 $('#modal_form').modal('hide');
-           //window.location="requisicoes/add_itens";     
+           //window.location="requisicoes/add_itens";
             reload_table();
             }
             else
@@ -325,27 +304,27 @@ function save()
             }
             $('#btnSave').text('Salvar'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
- 
- 
+
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
             alert('Erro ao adicionar/atualizar dados');
             $('#btnSave').text('Salvar'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
- 
+
         }
     });
-        
-        
-        
+
+
+
     }
-    
-  
- 
-  
+
+
+
+
 }
- 
+
 function delete_produtos(id)
 {
     if(confirm('Realmente gostaria de deletar esta requisição?'))
@@ -366,12 +345,12 @@ function delete_produtos(id)
                 alert('Erro ao excluir dados');
             }
         });
- 
+
     }
 }
- 
+
 </script>
- 
+
 <!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">
@@ -380,8 +359,8 @@ function delete_produtos(id)
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h3 class="modal-title">Requisição</h3>
             </div>
-            
-           
+
+
             <div class="modal-body form">
                 <form action="requisicoes/create" method="post" id="form" class="form-horizontal">
                     <input name="id_requisicao" value="" class="form-control" type="hidden">
@@ -393,25 +372,25 @@ function delete_produtos(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        
-                                           
+
+
                         <div class="form-group">
                             <label class="control-label col-md-3">Departamento Solicitante</label>
                             <div class="col-md-9">
                               <select class="form-control" name="dep_requisicao">
-                             
-                                  
+
+
                             <?php
-                             
+
                             foreach($dep->result() as $dep):
                             echo ('<option value="'.$dep->id_departamento.'">'.$dep->nome_departamento.'</option>');
                             endforeach;
-                            ?>  
+                            ?>
                              </select>
                             </div>
                         </div>
-                        
-                        
+
+
                         <!--<div class="form-group">
                             <label class="control-label col-md-3">Departamento Cedente</label>
                             <div class="col-md-9">
@@ -420,7 +399,7 @@ function delete_produtos(id)
                             foreach($dep_ced->result() as $dep_ced):
                             echo ('<option value="'.$dep_ced->id_departamento.'">'.$dep_ced->nome_departamento.'</option>');
                             endforeach;
-                            ?>  
+                            ?>
                              </select>
                             </div>
                         </div>-->
@@ -439,7 +418,7 @@ function delete_produtos(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="control-label col-md-3">Data</label>
                             <div class="col-md-9">
@@ -447,15 +426,15 @@ function delete_produtos(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        
-                     
-                        
-                        
+
+
+
+
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                
+
                 <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Salvar</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
             </div>
@@ -468,12 +447,12 @@ function delete_produtos(id)
                $('.datepicker-input').datepicker({ dateFormat: 'yy-mm-dd' })
             });
         </script>
-        
-      
+
+
 
  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-ui-1.10.1.custom.min.js' ?>"></script>
-		
- 
+
+
   <script>
   $(function() {
     $( ".datepicker" ).datepicker();

@@ -7,20 +7,29 @@ class Configuracoes extends MY_Controller {
 		//$this->check_isvalidated();
                 $this->load->model('M_configuracoes');
                 $this->load->library('grocery_CRUD');
-               
+
 	}
-	
-       
-         
+
+       public function index(){
+
+				 $data['title'] = "Página Inicial - Controle de Estoque ";
+         $data['headline'] = "Configurações";
+
+         $this->load->view('v_header');
+         $this->load->view('v_menu', $data);
+				 $this->load->view('configuracoes/v_dash_configuracoes', $data);
+				 $this->load->view('v_footer', $data);
+			 }
+
         public function adm_menus()
 	{
-            
-       
+
+
 	// controle de acesso
             $this->load->model('controleacesso');
             $controller="adm_menus";
              if(Controleacesso::acesso($controller) == true){
-       
+
             try{
 			$crud = new grocery_CRUD();
 
@@ -49,19 +58,19 @@ class Configuracoes extends MY_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
                   //fim do controle de acesso
-                 } 
+                 }
            else{
-              $this->load->view('v_header',$data);  
+              $this->load->view('v_header',$data);
               $this->load->view('sem_acesso');
            }
         }
-        
+
          public function sub_menu($id){
-          
+
             $this->load->model('controleacesso');
             $controller="menus";
              if(Controleacesso::acesso($controller) == true){
-       
+
             try{
 			$crud = new grocery_CRUD();
 
@@ -73,7 +82,7 @@ class Configuracoes extends MY_Controller {
                         $crud->order_by('nome_menu');
                         // $crud->set_relation( 'pai_menu',  'menu', 'nome_menu');
                         //$crud->set_relation( 'acesso_menu',  'funcoes', 'nome_funcao');
-			
+
                         $crud->set_relation_n_n( 'acesso_menu', 'acesso_menu','funcoes', 'menu_id','funcao_id' ,'nome_funcao');
                         $crud->columns('nome_menu','apelido',  'acesso_menu');
                         $crud->display_as('nome_menu','Nome do menu')
@@ -89,19 +98,19 @@ class Configuracoes extends MY_Controller {
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
 		}
                   //fim do controle de acesso
-                 } 
+                 }
            else{
                $this->load->view('admin/v_header_adm');
                $this->load->view('admin/v_menu');
                echo 'Acesso negado';
               // $this->load->view('v_acesso_negado');
            }
-            
+
         }
 
 
-       
-    
+
+
 }
-        
+
 //}

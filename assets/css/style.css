@@ -3,7 +3,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
+/*
     Created on : 15/06/2016, 13:14:13
     Author     : Sammy Guergachi <sguergachi at gmail.com>
 */
@@ -11,7 +11,18 @@ and open the template in the editor.
 .margin-top{
     margin-top: 75px;
 }
+.modal-backdrop {
 
+    z-index: auto !important;
+
+}
+.user-info{
+  padding: 4px 0px 0px 0px;
+    margin: 0 20px;
+}
+.user-name{
+  margin-bottom: 3px;
+}
 #primary_nav_wrap ul
 {
 	list-style:none;
@@ -30,7 +41,7 @@ and open the template in the editor.
 	/font-size:12px;*/
 	line-height:32px;
 	padding:0 15px;
-	
+
 }
 
 #primary_nav_wrap ul li
@@ -87,12 +98,7 @@ and open the template in the editor.
 .bar{
     background: #337AB7;
 }
-.navbar-default{
-    background: #013c09 !important;
-}
-.navbar-default a{
-    color: #fff !important;
-}
+
 .has-sub a{
     color: #000 !important;
 }

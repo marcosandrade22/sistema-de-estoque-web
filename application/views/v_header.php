@@ -2,21 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 	<head>
             <base href="<?php echo base_url(); ?>" >
-                
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<title><?php echo $title;?></title>
-		
+
 		<!-- CSS -->
+				<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/estilo.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" media="screen" charset="utf-8" />
+
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.css" type="text/css" media="screen" charset="utf-8" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery-ui.css">
-  
-		
-                
-		<!-- JavaScript 
+
+		<!-- Theme -->
+		  <link href="<?php echo base_url(); ?>assets_theme/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- Animation library for notifications   -->
+    <link href="<?php echo base_url(); ?>assets_theme/css/animate.min.css" rel="stylesheet"/>
+		<!--  Paper Dashboard core CSS    -->
+    <link href="<?php echo base_url(); ?>assets_theme/css/paper-dashboard.css" rel="stylesheet"/>
+		<!--  CSS for Demo Purpose, don't include it in your project     -->
+    <link href="<?php echo base_url(); ?>assets_theme/css/demo.css" rel="stylesheet" />
+
+
+    <!--  Fonts and icons     -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="<?php echo base_url(); ?>assets_theme/css/themify-icons.css" rel="stylesheet">
+
+
+		<!-- JavaScript
 		<script src="<?php echo base_url('assets/js/jquery-1.9.1.js')?>"></script>
                 <script>
                 $.noConflict();
@@ -25,24 +40,52 @@
                 });
                 // Code that uses other library's $ can follow here.
                 </script>-->
-                
+
                  <script src="<?php echo base_url() . 'assets/js/jquery-1.12.0.min.js' ?>"></script>
-                
+
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.dataTables.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-ui-1.10.1.custom.min.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.maskedinput.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/bootstrap.js' ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery.js' ?>"></script>
                 <script type="text/javascript" src="<?php echo base_url() . 'assets/js/moeda.js' ?>"></script>
-                
-                <link href="<?php echo base_url(); ?>assets/css/select2.min.css" rel="stylesheet" />
+  						<link href="<?php echo base_url(); ?>assets/css/select2.min.css" rel="stylesheet" />
+
+
+							<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>">
+							<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
+							<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/buttons.dataTables.css')?>">
+							<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/shCore.css?>')?>">
+
+							<style type="text/css" class="init"></style>
+
+							    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+							    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+							    <!--[if lt IE 9]>
+							      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+							      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+							    <![endif]-->
+
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery-1.12.3.min.js')?>">	</script>
+							
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery.dataTables.js')?>">	</script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/shCore.js')?>">	</script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/demo.js')?>">	</script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.buttons.js')?>">	</script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.flash.js')?>"> </script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.html5.js')?>">	</script>
+							<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.print.js')?>">	</script>
+
 <script src="<?php echo base_url(); ?>assets/js/select2.min.js"></script>
 <script>
 $(function(){
  $('.moeda').bind('keypress',mask.money)
 });
 
-
+function goBack() {
+    window.history.back();
+}
 
 </script>
 <script type="text/javascript">
@@ -52,3 +95,4 @@ $(document).ready(function() {
 </script>
 	</head>
 	<body>
+		<div class="wrapper">

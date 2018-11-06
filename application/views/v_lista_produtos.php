@@ -1,32 +1,5 @@
-<link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/buttons.dataTables.css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/shCore.css?>')?>">
-
-<style type="text/css" class="init"></style>
-  
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery-1.12.3.min.js')?>">	</script>
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery.dataTables.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/shCore.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/demo.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.buttons.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.flash.js')?>"> </script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.html5.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.print.js')?>">	</script>
-	
-	
 <script type="text/javascript" language="javascript" class="init">
- $(document).ready(function() {           
+ $(document).ready(function() {
          table = $('#requisicoes').DataTable({
         dom: 'Blfrtip',
         buttons: [
@@ -47,13 +20,13 @@
        "sNext":     "Próximo",
        "sLast":     "Último"
     }
- } 
+ }
   });
 } );
 </script>
     <script>
-     
-   
+
+
   $(function() {
     $( ".datepicker" ).datepicker({
         dateFormat: 'yy-mm-dd',
@@ -65,7 +38,7 @@
 
         });
   });
-  
+
     $(function() {
     $( "#datepicker2" ).datepicker({
         dateFormat: 'yy-mm-dd',
@@ -78,20 +51,23 @@
         });
   });
   </script>
-<body>
-    
- 
-    <div class="container margin-top" >
-      
- 
+  <div class="content">
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+            <div class="card ">
+
+              <div class="header">
+                <button class="btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
         <h3><?php echo $pagina ?></h3>
-        <br />
+      </div>
+      <div class="content">
          <?php
              if(Controleacesso::acesso_funcao(10) == true){
                 echo '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Novo Produto</button>';
              }
              else{
-                echo '<button class="btn btn-success" disabled><i class="glyphicon glyphicon-plus"></i>Novo Produto</button>';  
+                echo '<button class="btn btn-success" disabled><i class="glyphicon glyphicon-plus"></i>Novo Produto</button>';
              }
              ?>
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Recarregar</button>
@@ -106,7 +82,7 @@
                     <th>Departamento</th>
                     <th>Qt.</th>
                     <th>Preço</th>
-                    
+
                     <th style="width:125px;">Açao</th>
                 </tr>
             </thead>
@@ -117,29 +93,29 @@
                      <td><?php echo $lista->cod_barras; ?></td>
                       <td><?php echo $lista->nome_produto; ?></td>
                        <td><?php echo $lista->nome_departamento; ?></td>
-                                        
+
                        <td>
                           <?php
-                        if(Controleacesso::acesso_funcao(11) == true){   
+                        if(Controleacesso::acesso_funcao(11) == true){
                         echo '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$lista->id_produto.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                         }
                         else{
-                            
+
                         }
-                         
-                        if(Controleacesso::acesso_funcao(12) == true){   
+
+                        if(Controleacesso::acesso_funcao(12) == true){
                         echo ' <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_produtos('.$lista->id_produto.')"><i class="glyphicon glyphicon-trash"></i> Del</a>';
                         }
                         else{
-                            
+
                         }
                         ?>
                        </td>
                 </tr>
-                
+
                 <?php endforeach; ?>
             </tbody>
- 
+
             <tfoot>
             <tr>
                    <th>Cód. Interno</th>
@@ -148,26 +124,30 @@
                     <th>Departamento</th>
                     <th>Qt.</th>
                     <th>Preço</th>
-                    
+
                     <th style="width:125px;">Açao</th>
             </tr>
             </tfoot>
         </table>
-    </div>
- 
- 
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
- 
+
+
 <script type="text/javascript">
- 
+
 var save_method; //for save method string
 var table;
- 
+
 $(document).ready(function() {
- 
+
     //datatables
     table = $('#tble').DataTable({
-        
+
         "oLanguage": {
     "sProcessing": "Aguarde enquanto os dados são carregados ...",
     "sLengthMenu": "Mostrar _MENU_ registros por pagina",
@@ -183,17 +163,17 @@ $(document).ready(function() {
        "sLast":     "Último"
     }
  } ,
- 
+
         "processing": true, //Feature control the processing indicator.
         "serverSide": true, //Feature control DataTables' server-side processing mode.
         "order": [], //Initial no order.
- 
+
         // Load data for the table's content from an Ajax source
         "ajax": {
             "url": "<?php echo site_url('estoque/ajax_list')?>",
             "type": "POST"
         },
- 
+
         //Set column definition initialisation properties.
         "columnDefs": [
         {
@@ -201,9 +181,9 @@ $(document).ready(function() {
             "orderable": false, //set not orderable
         },
         ],
- 
+
     });
- 
+
     //datepicker
     $('.datepicker').datepicker({
         autoclose: true,
@@ -211,9 +191,9 @@ $(document).ready(function() {
         todayHighlight: true,
         orientation: "top auto",
         todayBtn: true,
-        todayHighlight: true,  
+        todayHighlight: true,
     });
- 
+
     //set input/textarea/select event when change value, remove class error and remove text help block
     $("input").change(function(){
         $(this).parent().parent().removeClass('has-error');
@@ -227,11 +207,11 @@ $(document).ready(function() {
         $(this).parent().parent().removeClass('has-error');
         $(this).next().empty();
     });
- 
+
 });
- 
- 
- 
+
+
+
 function add_produtos()
 {
     save_method = 'add';
@@ -241,14 +221,14 @@ function add_produtos()
     $('#modal_form').modal('show'); // show bootstrap modal
     $('.modal-title').text('Novo Produto'); // Set Title to Bootstrap modal title
 }
- 
+
 function edit_produtos(id)
 {
     save_method = 'update';
     $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
- 
+
     //Ajax Load data from ajax
     $.ajax({
         url : "<?php echo site_url('estoque/produto_edit/')?>/" + id,
@@ -258,29 +238,29 @@ function edit_produtos(id)
         {
              var estoque;
              estoque = data.quantidade_qt;
-             
+
              if (estoque > 0) {
                  $("#ver-disabled").addClass('hidden', true);
                   document.getElementById('mensagem-disabled').style.display = "block";
-            } 
-            else { 
-                $("#ver-disabled").removeClass('hidden', true);  
+            }
+            else {
+                $("#ver-disabled").removeClass('hidden', true);
                 document.getElementById('mensagem-disabled').style.display = "none";
              }
               $( '.estoque' ).html( '' );
             $( ".estoque" ).append( "<b>Estoque </b>" +data.quantidade_qt);
-             
+
             //$('[name="estoque"]').val(data.quantidade_qt);
-            
+
             $('[name="id_produto"]').val(data.id_produto);
             $('[name="nome_produto"]').val(data.nome_produto);
             $('[name="cod_barras"]').val(data.cod_barras);
             $('[name="descricao_produto"]').val(data.descricao_produto);
             $('[name="departamento"]').val(data.departamento_produto);
-            
+
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Editar Produto'); // Set title to Bootstrap modal title
-            
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
@@ -292,19 +272,19 @@ function reload_table()
 {
     location.reload();
 }
- 
+
 function save()
 {
     $('#btnSave').text('saving...'); //change button text
     $('#btnSave').attr('disabled',true); //set button disable
     var url;
- 
+
     if(save_method == 'add') {
         url = "<?php echo site_url('estoque/produto_add')?>";
     } else {
         url = "<?php echo site_url('estoque/produto_update')?>";
     }
- 
+
     // ajax adding data to database
     $.ajax({
         url : url,
@@ -313,7 +293,7 @@ function save()
         dataType: "JSON",
         success: function(data)
         {
- 
+
             if(data.status) //if success close modal and reload ajax table
             {
                 $('#modal_form').modal('hide');
@@ -329,19 +309,19 @@ function save()
             }
             $('#btnSave').text('save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
- 
- 
+
+
         },
         error: function (jqXHR, textStatus, errorThrown)
         {
             alert('Error adding / update data');
             $('#btnSave').text('save'); //change button text
             $('#btnSave').attr('disabled',false); //set button enable
- 
+
         }
     });
 }
- 
+
 function delete_produtos(id)
 {
     if(confirm('Are you sure delete this data?'))
@@ -362,13 +342,13 @@ function delete_produtos(id)
                 alert('Error deleting data');
             }
         });
- 
+
     }
 }
 
- 
+
 </script>
- 
+
 <!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">
@@ -388,7 +368,7 @@ function delete_produtos(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="control-label col-md-3">Cód. de Barras</label>
                             <div class="col-md-9">
@@ -403,10 +383,10 @@ function delete_produtos(id)
                                 <span class="help-block"></span>
                             </div>
                         </div>
-                        
-                         
-                       
-                        
+
+
+
+
                         <div class="form-group ">
                             <label class="control-label col-md-3">Departamento</label>
                             <div class="col-md-9">
@@ -415,7 +395,7 @@ function delete_produtos(id)
                             foreach($departamento->result() as $departamento):
                             echo ('<option value="'.$departamento->id_departamento.'">'.$departamento->nome_departamento.'</option>');
                             endforeach;
-                            ?>  
+                            ?>
                              </select>
                                 <div id="mensagem-disabled" style="display:none">
                                 Este produto possui estoque e não poderá ter o departamento alterado.
@@ -423,11 +403,11 @@ function delete_produtos(id)
                                  <p class="estoque" placeholder="Estoque"  ></p>
                                 <span class="help-block"></span>
                             </div>
-                            
+
                         </div>
-                     
-                        
-                        
+
+
+
                     </div>
                 </form>
             </div>
@@ -444,12 +424,12 @@ function delete_produtos(id)
                $('.datepicker-input').datepicker({ dateFormat: 'yy-mm-dd' })
             });
         </script>
-        
-      
+
+
 
  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-ui-1.10.1.custom.min.js' ?>"></script>
-		
- 
+
+
   <script>
   $(function() {
     $( ".datepicker" ).datepicker();

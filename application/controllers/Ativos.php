@@ -12,13 +12,25 @@ class Ativos extends MY_Controller {
     }
 
     public function index(){
+
+      $data['title'] = "Página Inicial - Controle de Estoque ";
+      $data['headline'] = "Ativos";
+
+      $this->load->view('v_header');
+      $this->load->view('v_menu', $data);
+      $this->load->view('configuracoes/v_dash_configuracoes', $data);
+      $this->load->view('v_footer', $data);
+    }
+
+    public function lista_ativos(){
         // controle de acesso
 
         $controller="ativos";
         if($this->Controleacesso->acesso($controller) == true){
 
-        $data['pagina'] = "Ativos";
+        $data['pagina'] = "Controle de Ativos";
         $data['title'] = "Ativos - Estoque";
+        $data['headline'] = "Controle de Ativos";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -26,6 +38,7 @@ class Ativos extends MY_Controller {
         $data['lista'] = $this->M_ativos->lista_ativos();
         $data['departamento'] = $this->M_nota->listDep();
         $this->load->view('v_lista_ativos', $data);
+        $this->load->view('v_footer', $data);
         }
                   else{
                   $this->load->view('v_header',$data);
@@ -47,6 +60,7 @@ class Ativos extends MY_Controller {
 
         $this->load->model('M_ativos', '', TRUE);
         $data['pagina'] = "Requisições de Ativo";
+        $data['headline'] = "Requisição de Ativo";
         $data['lista'] = $this->M_ativos->lista_requisicoes();
         $data['departamento'] = $this->M_nota->listDep();
         $data['title'] = "Requisições - Estoque";
@@ -55,6 +69,7 @@ class Ativos extends MY_Controller {
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
         $this->load->view('v_requisicao_ativo', $data);
+          $this->load->view('v_footer', $data);
         }
          else{
                   $this->load->view('v_header',$data);

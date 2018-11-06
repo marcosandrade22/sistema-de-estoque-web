@@ -39,7 +39,7 @@ class Adm_menus extends MY_Controller {
 			$crud->set_table('menu');
 			$crud->set_subject('Menus');
                         $crud->where('id_pai','1');
-			$crud->required_fields('id_menu');
+												$crud->required_fields('id_menu');
                         $crud->set_relation( 'pai_menu',  'menu', 'nome_menu');
            							$crud->set_relation('tipo_menu','menu_sub', 'tipo_pai' );
                         $crud->set_relation_n_n( 'acesso_menu', 'acesso_menu','funcoes', 'menu_id','funcao_id' ,'nome_funcao');
@@ -76,14 +76,14 @@ class Adm_menus extends MY_Controller {
 			$crud->set_table('menu');
 			$crud->set_subject('Menus');
                         $crud->where('pai_menu',$id);
-			$crud->required_fields('id_menu');
+												$crud->required_fields('id_menu');
                         $crud->order_by('nome_menu');
                         $crud->set_relation_n_n( 'acesso_menu', 'acesso_menu','funcoes', 'menu_id','funcao_id' ,'nome_funcao');
                         $crud->columns('nome_menu','apelido',  'acesso_menu');
                         $crud->display_as('nome_menu','Nome do menu')
 												->display_as('pai_menu','Menu Relacionado')
                         ->display_as('acesso_menu','Permissão de acesso');
-                        $crud->edit_fields('nome_menu', 'apelido', 'link_menu', 'acesso_menu');
+                        $crud->edit_fields('nome_menu', 'apelido', 'icone_menu','link_menu', 'acesso_menu');
                         $crud->unset_add();
 												$output = $crud->render();
 												$this->_example_output($output);
@@ -96,6 +96,7 @@ class Adm_menus extends MY_Controller {
            else{
                $this->load->view('admin/v_header_adm');
                $this->load->view('admin/v_menu');
+
                echo 'Acesso negado';
               // $this->load->view('v_acesso_negado');
            }

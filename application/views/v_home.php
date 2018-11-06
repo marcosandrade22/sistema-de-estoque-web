@@ -1,38 +1,3 @@
-<?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-//$this->load->model('M_home');
-?>
-<link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css')?>" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/buttons.dataTables.css')?>">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/datatables/css/shCore.css?>')?>">
-
-<style type="text/css" class="init"></style>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery-1.12.3.min.js')?>">	</script>
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js')?>"></script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/jquery.dataTables.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.bootstrap.js')?>"></script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/shCore.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/demo.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/dataTables.buttons.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.flash.js')?>"> </script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.html5.js')?>">	</script>
-<script type="text/javascript" language="javascript" src="<?php echo base_url('assets/datatables/js/buttons.print.js')?>">	</script>
-
 <script type="text/javascript" language="javascript" class="init">
     jQuery.fn.dataTableExt.oSort['brazilian-asc'] = function(a,b) {
 var x = (a == "-") ? 0 : a.replace( /\./g, "" ).replace( /,/, "." );
@@ -88,99 +53,193 @@ return ((x < y) ? 1 : ((x > y) ? -1 : 0));
 
 </script>
 
-<body>
-    <div class="container  margin-top">
-        <h2>Bem vindo ao sistema de estoque.<div class="num" ></div></h2>
-        <div class="col-xs-6 padded" >
-           <div class="panel panel-default">
-            <div class="panel-heading">
-            <h3 class="panel-title">Resumo dos Departamentos</h3>
-             </div>
-            <div class="panel-body">
-                <table id="resumo" class="table">
-                    <thead>
-                        <tr>
-                         <th>Dep.</th>
-                         <th>Produtos</th>
-                         <th>Valor</th>
-                        </tr>
-                    </thead>
-            <?php foreach($resumo as $resumo):
-                //$quant_geral = '';
+<div class="content">
+            <div class="container-fluid">
 
-                ?>
-                    <tr>
-                    <td>
-                        <?php echo $resumo->nome_departamento; ?>
-                    </td>
-                     <td class="right">
-                      <?php
-                       $query5 = $this->db->query("SELECT * FROM estoque WHERE departamento_estoque = $resumo->id_departamento;");
-                      $quant = "0";
-                      foreach($query5->result() as $qt):
-                       $quant= $quant+$qt->quantidade_estoque;
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="ti-server"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Produtos</p>
+                                          <?php echo  number_format($quant_geral,0,',','.'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                      Quantidade de produtos no estoque
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-wallet"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Valor</p>
+                                            R$ <?php echo  number_format($valor_geral,2,',','.'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        Valor atual do estoque
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <i class="ti-pulse"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Errors</p>
+                                            23
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> In the last hour
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <i class="ti-twitter-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Followers</p>
+                                            +45
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Updated now
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-
-                       endforeach;
-                       $quant_geral = $quant_geral+$quant;
-                       echo $quant;
-
-                        ?>
-                    </td>
-                    <td class="right">
-                        <?php
-
-                        $valor_final = '';
-                       $query4 = $this->db->query("SELECT * FROM estoque WHERE departamento_estoque = $resumo->id_departamento;");
-                       foreach($query4->result() as $qt):
-                       $valor = str_replace(",",".",$qt->preco_estoque);
-                       $valor_linha= $valor*$qt->quantidade_estoque;
-                       $valor_final = $valor_final+$valor_linha;
-
-                       endforeach;
-                       $valor_geral = $valor_geral+$valor_final;
-
-                       if(empty($valor_final)){
-                           echo '0';
-                       }
-                       else{
-                        echo  number_format($valor_final,2,',','.');
-                       }
-
-
-                       ?>
-
-                    </td>
-                    </tr>
-
-            <?php
-            //$quant_geral = $quant_geral+$quant;
-            endforeach;?>
-                </table>
-             </div>
-            </div>
-
-        </div>
-
-        <div class="col-xs-6 padded">
-
-
-            <h3 ">Resumo do Estoque</h3>
-
-
-
-                <div class="alert alert-success" role="alert">
-                Quantidade de Produtos no estoque :    <span class="black"><b>  <?php echo  number_format($quant_geral,0,',','.'); ?></b></span>
+                  -->
                 </div>
+                <div class="row">
+              <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Resumo dos Departamentos</h4>
 
-                <div class="alert alert-warning" role="alert">
-                    Valor atual do estoque : <span class="black"><b>R$ <?php echo  number_format($valor_geral,2,',','.'); ?></b></span>
-                </div>
+                            </div>
+                            <div class="content">
+                              <table id="resumo" class="table">
+                                  <thead>
+                                      <tr>
+                                       <th>Dep.</th>
+                                       <th>Produtos</th>
+                                       <th>Valor</th>
+                                      </tr>
+                                  </thead>
+                          <?php foreach($resumo as $resumo):
+                              //$quant_geral = '';
+
+                              ?>
+                                  <tr>
+                                  <td>
+                                      <?php echo $resumo->nome_departamento; ?>
+                                  </td>
+                                   <td class="right">
+                                    <?php
+                                     $query5 = $this->db->query("SELECT * FROM estoque WHERE departamento_estoque = $resumo->id_departamento;");
+                                    $quant = "0";
+                                    foreach($query5->result() as $qt):
+                                     $quant= $quant+$qt->quantidade_estoque;
+
+
+                                     endforeach;
+                                     $quant_geral = $quant_geral+$quant;
+                                     echo $quant;
+
+                                      ?>
+                                  </td>
+                                  <td class="right">
+                                      <?php
+
+                                      $valor_final = '';
+                                     $query4 = $this->db->query("SELECT * FROM estoque WHERE departamento_estoque = $resumo->id_departamento;");
+                                     foreach($query4->result() as $qt):
+                                     $valor = str_replace(",",".",$qt->preco_estoque);
+                                     $valor_linha= $valor*$qt->quantidade_estoque;
+                                     $valor_final = $valor_final+$valor_linha;
+
+                                     endforeach;
+                                     $valor_geral = $valor_geral+$valor_final;
+
+                                     if(empty($valor_final)){
+                                         echo '0';
+                                     }
+                                     else{
+                                      echo  number_format($valor_final,2,',','.');
+                                     }
+
+
+                                     ?>
+
+                                  </td>
+                                  </tr>
+
+                          <?php
+                          //$quant_geral = $quant_geral+$quant;
+                          endforeach;?>
+                              </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
 
 
 
 
-    </div>
 
+
+</div>
+</div>
 
  <script type="text/javascript" src="<?php echo base_url() . 'assets/js/jquery-ui-1.10.1.custom.min.js' ?>"></script>

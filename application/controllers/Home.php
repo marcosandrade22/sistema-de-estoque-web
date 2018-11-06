@@ -28,15 +28,14 @@ class Home extends MY_Controller {
             $this->load->model('M_home');
         $this->load->model('Getuser');
         $data['title'] = "Página Inicial - Controle de Estoque ";
-        $data['headline'] = "Controle de Estoque";
+        $data['headline'] = "Dashboard";
         //$data['include'] = "estoque_index";
         $data['resumo'] = $this->M_home->resumo_estoque();
         $data['qt_resumo'] = $this->M_home->qt_resumo();
         $this->load->view('v_header', $data);
         $this->load->view('v_menu', $data);
         $this->load->view('v_home', $data);
-	//$this->load->view('template', $data);
-        //$this->load->view('template_lista', $data);
+				$this->load->view('v_footer', $data);
         }
 
        function listar()

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 31-Out-2018 às 20:19
+-- Generation Time: 06-Nov-2018 às 17:11
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 5.6.38
 
@@ -565,40 +565,41 @@ CREATE TABLE `menu` (
   `pai_menu` int(255) NOT NULL,
   `link_menu` varchar(255) NOT NULL,
   `acesso_menu` int(255) NOT NULL,
-  `ordem_menu` int(255) NOT NULL
+  `ordem_menu` int(255) NOT NULL,
+  `icone_menu` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `menu`
 --
 
-INSERT INTO `menu` (`id_menu`, `nome_menu`, `tipo_menu`, `apelido`, `pai_menu`, `link_menu`, `acesso_menu`, `ordem_menu`) VALUES
-(6, 'Produtos', 1, 'administracao', 0, '#', 1, 4),
-(26, 'Estoque', 0, 'lista_estoque', 6, 'estoque/produtos', 0, 0),
-(44, 'Configurações', 1, 'configuracoes', 0, 'javascript;', 0, 1),
-(48, 'Eventos', 2, 'adm_artigos', 46, 'adm_artigos', 0, 0),
-(49, 'Pacotes', 2, 'adm_pacotes', 46, 'adm_pacotes', 0, 0),
-(50, 'Adm. de Usuários', 2, 'adm_inscricoes', 46, 'adm_inscricoes', 0, 0),
-(51, 'Tipos de Evento', 2, 'adm_tipo', 46, 'adm_tipo', 0, 0),
-(53, 'Remessa', 2, '', 47, 'gerar_remessa', 0, 0),
-(54, 'Boletos', 2, '', 47, 'adm_boletos', 0, 0),
-(55, 'Retorno', 2, '', 47, 'gerar_remessa/retorno', 0, 0),
-(56, 'Relatórios de pagamento', 2, '', 47, 'adm_relatorios', 0, 0),
-(58, 'Adm. Menus', 2, 'adm_menus', 44, 'adm_menus', 0, 0),
-(62, 'Nota Fiscal', 1, 'nota_fiscal', 0, '#', 0, 2),
-(63, 'Listagem', 2, 'nota_fiscal', 62, 'nota_fiscal', 0, 0),
-(64, 'Fornecedores', 2, 'fornecedores', 62, 'nota_fiscal/fornecedores', 0, 0),
-(65, 'Departamentos', 2, 'departamentos', 6, 'estoque/departamentos', 0, 0),
-(66, 'Requisições', 1, 'requisições', 0, '#', 0, 3),
-(68, 'Lista Requisições', 2, 'requisicoes/nova_requisicao', 66, 'requisicoes/nova_requisicao', 0, 0),
-(71, 'Adm. Usuarios', 2, 'adm_usuarios', 44, 'adm_usuarios', 0, 0),
-(73, 'Acesso Funções', 2, 'adm_acesso', 44, 'adm_acesso', 0, 0),
-(74, 'Monitor Requisicao', 2, 'requisicoes/monitor_requisicao', 66, 'requisicoes/monitor_requisicao', 0, 0),
-(75, 'Ativos', 1, 'ativos', 0, 'javascript;', 0, 5),
-(76, 'Controle de Ativos', 2, 'ativos', 75, 'ativos', 0, 0),
-(77, 'Requisição de Ativo', 2, 'requisicao_ativo', 75, 'ativos/nova_requisicao', 0, 0),
-(78, 'Etiquetas', 2, 'etiquetas', 6, 'etiquetas', 0, 0),
-(79, 'Atualizacao', 2, 'adm_update', 44, 'adm_update', 0, 3);
+INSERT INTO `menu` (`id_menu`, `nome_menu`, `tipo_menu`, `apelido`, `pai_menu`, `link_menu`, `acesso_menu`, `ordem_menu`, `icone_menu`) VALUES
+(6, 'Estoque', 1, 'estoque', 0, 'estoque', 1, 4, 'ti-package'),
+(26, 'Estoque', 0, 'lista_estoque', 6, 'estoque/produtos', 0, 0, 'ti-package'),
+(44, 'Configurações', 1, 'configuracoes', 0, 'configuracoes', 0, 6, 'ti-settings'),
+(48, 'Eventos', 2, 'adm_artigos', 46, 'adm_artigos', 0, 0, ''),
+(49, 'Pacotes', 2, 'adm_pacotes', 46, 'adm_pacotes', 0, 0, ''),
+(50, 'Adm. de Usuários', 2, 'adm_inscricoes', 46, 'adm_inscricoes', 0, 0, ''),
+(51, 'Tipos de Evento', 2, 'adm_tipo', 46, 'adm_tipo', 0, 0, ''),
+(53, 'Remessa', 2, '', 47, 'gerar_remessa', 0, 0, ''),
+(54, 'Boletos', 2, '', 47, 'adm_boletos', 0, 0, ''),
+(55, 'Retorno', 2, '', 47, 'gerar_remessa/retorno', 0, 0, ''),
+(56, 'Relatórios de pagamento', 2, '', 47, 'adm_relatorios', 0, 0, ''),
+(58, 'Adm. Menus', 2, 'adm_menus', 44, 'adm_menus', 0, 0, 'ti-menu'),
+(62, 'Entradas', 1, 'nota_fiscal', 0, 'nota_fiscal', 0, 2, 'ti-pencil-alt'),
+(63, 'Lista Notas Fiscais', 2, 'nota_fiscal', 62, 'nota_fiscal/lista_nf', 0, 0, 'ti-pencil-alt'),
+(64, 'Fornecedores', 2, 'fornecedores', 62, 'nota_fiscal/fornecedores', 0, 0, 'ti-book'),
+(65, 'Departamentos', 2, 'departamentos', 6, 'estoque/departamentos', 0, 0, 'ti-briefcase'),
+(66, 'Saídas', 1, 'requisições', 0, 'requisicoes', 0, 3, 'ti-share'),
+(68, 'Lista Requisições', 2, 'requisicoes/nova_requisicao', 66, 'requisicoes/nova_requisicao', 0, 0, 'ti-list'),
+(71, 'Adm. Usuarios', 2, 'adm_usuarios', 44, 'adm_usuarios', 0, 0, 'ti-user'),
+(73, 'Acesso Funções', 2, 'adm_acesso', 44, 'adm_acesso', 0, 0, 'ti-pencil-alt'),
+(74, 'Requisições Abertas', 2, 'requisicoes/monitor_requisicao', 66, 'requisicoes/monitor_requisicao', 0, 0, 'ti-unlock'),
+(75, 'Ativos', 1, 'ativos', 0, 'ativos', 0, 5, 'ti-layout-accordion-merged'),
+(76, 'Controle de Ativos', 2, 'ativos', 75, 'ativos/lista_ativos', 0, 0, 'ti-list'),
+(77, 'Requisição de Ativo', 2, 'requisicao_ativo', 75, 'ativos/nova_requisicao', 0, 0, 'ti-pencil-alt'),
+(78, 'Etiquetas', 2, 'etiquetas', 6, 'etiquetas', 0, 0, 'ti-ticket'),
+(79, 'Atualizacao', 2, 'adm_update', 44, 'adm_update', 0, 3, 'ti-reload');
 
 -- --------------------------------------------------------
 

@@ -15,10 +15,10 @@ JsBarcode("#barcode", "Hi world!");
     <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="img/iasd_logo.png" max-height="30px" align="left" />
+             <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Associação Rio Sul
+             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -60,10 +60,10 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="img/iasd_logo.png" max-height="30px" align="left" />
+             <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Associação Rio Sul
+             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -106,10 +106,10 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="img/iasd_logo.png" max-height="30px" align="left" />
+             <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Associação Rio Sul
+             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -150,10 +150,10 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="img/iasd_logo.png" max-height="30px" align="left" />
+             <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Associação Rio Sul
+             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -195,10 +195,10 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="img/iasd_logo.png" max-height="30px" align="left" />
+             <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Associação Rio Sul
+             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -239,10 +239,10 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="img/iasd_logo.png" max-height="30px" align="left" />
+             <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Associação Rio Sul
+             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">

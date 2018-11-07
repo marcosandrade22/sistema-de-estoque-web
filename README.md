@@ -13,3 +13,5 @@ Instalação
 
 Usuario : teste@teste.com 
 Senha: teste
+
+5 - O arquivo .htaccess precisa ser ajustado conforme o seu host.

@@ -105,7 +105,7 @@
          <a href="estoque/relatorio"><button class="btn btn-primary" ><i class="glyphicon glyphicon-list-alt"></i> Relatório</button></a>
         <br />
         <br />
-        <table id="requisicoes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="requisicoes" class="table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                      <th>Cód. Interno</th>

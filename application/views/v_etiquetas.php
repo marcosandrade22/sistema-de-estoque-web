@@ -20,7 +20,7 @@
            <div class="card row">
 
              <div class="header">
-               <button class="btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
+                 <button class="button-back btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
        <h3><?php echo $pagina ?></h3>
      </div>
      <div class="content">

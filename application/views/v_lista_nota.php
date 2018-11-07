@@ -60,11 +60,11 @@
   					<div class="card ">
 
               <div class="header">
-                <button class="btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
+                  <button class="button-back btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
         <h3><?php echo $pagina ?></h3>
       </div>
       <div class="content">
-        
+
         <?php
         if(Controleacesso::acesso_funcao(1) == true){
         echo '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Nova Nota</button>';
@@ -75,7 +75,7 @@
         <button class="btn btn-default" onclick="reload_table()"><i class="ti-reload"></i> Recarregar</button>
         <br />
         <br />
-        <table id="requisicoes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="requisicoes" class="table-striped table-bordered" cellspacing="0" width="100%">
            <thead>
                 <tr>
                     <th>Número</th>

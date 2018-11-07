@@ -47,7 +47,7 @@
         <button class="btn btn-default" onclick="reload_table()"><i class="glyphicon glyphicon-refresh"></i> Recarregar</button>
         <br />
         <br />
-        <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="table" class="table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Número</th>

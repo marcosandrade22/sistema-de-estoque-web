@@ -13,6 +13,7 @@ class Estoque extends MY_Controller {
         $this->load->model('Getuser');
         $this->load->model('controleacesso');
         $this->load->model('M_nota', '', TRUE);
+        $this->load->model('M_produto', '', TRUE);
             $this->load->helper('url');
     }
     public function index(){
@@ -33,6 +34,7 @@ class Estoque extends MY_Controller {
         $data['departamentos'] = $this->M_nota->listDep();
         $data['pagina'] = "Estoque";
         $data['title'] = "Produtos - Estoque";
+
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -52,6 +54,7 @@ class Estoque extends MY_Controller {
         $data['headline'] = "Estoque";
         $data['pagina'] = "Estoque";
         $data['title'] = "Produtos - Estoque";
+        $data['num_dep'] = $this->M_produto->check_departamento();
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -217,6 +220,7 @@ class Estoque extends MY_Controller {
         $data['departamento'] = $this->M_nota->listDep();
         $data['pagina'] = "Editar  Produto";
         $data['title'] = "Produtos - Estoque";
+        $data['headline'] = "Edição de produto";
         $this->load->model('Getuser');
         $this->load->view('v_header',$data);
         $this->load->view('v_menu');
@@ -227,7 +231,7 @@ class Estoque extends MY_Controller {
 			if ($artigos->num_rows() > 0 ) {
 
                                 $data['id_produto'] = $artigos->row()->id_produto;
-				$data['cod_barras'] = $artigos->row()->cod_barras;
+				                        $data['cod_barras'] = $artigos->row()->cod_barras;
                                 $data['nome_produto'] = $artigos->row()->nome_produto;
                                 $data['preco_venda'] = $artigos->row()->preco_venda;
                                 $data['descricao_produto'] = $artigos->row()->descricao_produto;
@@ -287,7 +291,7 @@ class Estoque extends MY_Controller {
                  $imagem    = $_FILES['imagem_produto'];
                 $configuracao = array(
                 'upload_path'   => 'uploads/',
-                'allowed_types' => 'jpg|jpeg',
+                'allowed_types' => 'jpg|jpeg|png',
                 //'file_name'     => $this->Url_amiga->sanitize_title_with_dashes($this->input->post('nome_produto')).$this->input->post('departamento').'.jpg',
                 'file_name'     =>$nome_imagem.'.jpg',
                 'max_size'      => '500',
@@ -360,6 +364,7 @@ class Estoque extends MY_Controller {
         $data['produto'] =  $list = $this->produtos->detalhe_produto($id);
         $data['pagina'] = "Extrato do Produto";
         $data['title'] = "Produtos - Estoque";
+          $data['headline'] = "Extrato de produto";
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);

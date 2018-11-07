@@ -38,7 +38,7 @@ $this->load->database();
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <table class="table table-responsive table-striped table-bordered table-hover dataTable no-footer table_header" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info">
+                                            <table class="table-responsive table-striped table-bordered table-hover dataTable no-footer table_header" id="dataTables-example" role="grid" aria-describedby="dataTables-example_info">
                                     <thead>
                                         <tr role="row">
                                             <th class="sorting table_header" tabindex="0" rowspan="1" colspan="1" style="//width: 10px;">Cód.</th>

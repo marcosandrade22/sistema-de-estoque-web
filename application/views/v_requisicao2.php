@@ -70,7 +70,7 @@
   					<div class="card ">
 
               <div class="header">
-                <button class="btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
+                  <button class="button-back btn btn-info btn-fill btn-wd" onclick="goBack()"> <i class="ti-angle-left"></i>Voltar</button>
         <h3><?php echo $pagina ?></h3>
       </div>
       <div class="content">
@@ -88,7 +88,7 @@
          <a href="requisicoes/relatorio"><button class="btn btn-primary" ><i class="glyphicon glyphicon-list-alt"></i> Relatório</button></a>
         <br />
         <br />
-        <table id="requisicoes" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="requisicoes" class="table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Número</th>

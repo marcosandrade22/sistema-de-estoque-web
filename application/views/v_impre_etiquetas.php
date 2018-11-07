@@ -16,7 +16,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">

@@ -6,7 +6,7 @@
 JsBarcode("#barcode", "Hi world!");
 </script>
 
-  
+
         <?php
          $this->load->model('M_produto');
         ?>
@@ -18,7 +18,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -32,30 +32,30 @@ JsBarcode("#barcode", "Hi world!");
                  Cód:   <?php echo (int)$produto1; ?>
             </div>
             <div class="corpo-dir">
-                <?php 
-                
+                <?php
+
                 if(!empty($quantidade1)){
                     echo '<span class="tit-qtd">Qtd.</span><br>';
                     echo '<span class="qtd-etiq">'.$quantidade1.'</span>';
                 }
                 else{
-                  
+
                 }
-                
-              
+
+
                 ?>
-               
+
         </div>
-        
-        
-    </div>     
-        
-         
-            
-  
-</div> 
-        
- 
+
+
+    </div>
+
+
+
+
+</div>
+
+
 
   <div class="etiquetas">
          <div class="head-etiqueta">
@@ -63,7 +63,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -77,28 +77,28 @@ JsBarcode("#barcode", "Hi world!");
                  Cód:   <?php echo (int)$produto2; ?>
             </div>
             <div class="corpo-dir">
-                <?php 
-                
+                <?php
+
                 if(!empty($quantidade2)){
                     echo '<span class="tit-qtd">Qtd.</span><br>';
                     echo '<span class="qtd-etiq">'.$quantidade2.'</span>';
                 }
                 else{
-                  
+
                 }
-                
-              
+
+
                 ?>
-               
+
         </div>
-        
-        
-    </div>     
-        
-         
-            
-  
-</div> 
+
+
+    </div>
+
+
+
+
+</div>
 
 </div>
 
@@ -109,7 +109,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -123,28 +123,28 @@ JsBarcode("#barcode", "Hi world!");
                  Cód:   <?php echo (int)$produto3; ?>
             </div>
             <div class="corpo-dir">
-                <?php 
-                
+                <?php
+
                 if(!empty($quantidade3)){
                     echo '<span class="tit-qtd">Qtd.</span><br>';
                     echo '<span class="qtd-etiq">'.$quantidade3.'</span>';
                 }
                 else{
-                  
+
                 }
-                
-              
+
+
                 ?>
-               
+
         </div>
-        
-        
-    </div>     
-        
-         
-            
-  
-</div> 
+
+
+    </div>
+
+
+
+
+</div>
 
 
   <div class="etiquetas">
@@ -153,7 +153,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -167,28 +167,28 @@ JsBarcode("#barcode", "Hi world!");
                  Cód:   <?php echo (int)$produto4; ?>
             </div>
             <div class="corpo-dir">
-                <?php 
-                
+                <?php
+
                 if(!empty($quantidade4)){
                     echo '<span class="tit-qtd">Qtd.</span><br>';
                     echo '<span class="qtd-etiq">'.$quantidade4.'</span>';
                 }
                 else{
-                  
+
                 }
-                
-              
+
+
                 ?>
-               
+
         </div>
-        
-        
-    </div>     
-        
-         
-            
-  
-</div> 
+
+
+    </div>
+
+
+
+
+</div>
 </div>
 
 <div class="row2">
@@ -198,7 +198,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -212,28 +212,28 @@ JsBarcode("#barcode", "Hi world!");
                  Cód:   <?php echo (int)$produto5; ?>
             </div>
             <div class="corpo-dir">
-                <?php 
-                
+                <?php
+
                 if(!empty($quantidade5)){
                     echo '<span class="tit-qtd">Qtd.</span><br>';
                     echo '<span class="qtd-etiq">'.$quantidade5.'</span>';
                 }
                 else{
-                  
+
                 }
-                
-              
+
+
                 ?>
-               
+
         </div>
-        
-        
-    </div>     
-        
-         
-            
-  
-</div>  
+
+
+    </div>
+
+
+
+
+</div>
 
 
   <div class="etiquetas">
@@ -242,7 +242,7 @@ JsBarcode("#barcode", "Hi world!");
              <img src="img/logo.png" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
-             Igreja Adventista do Sétimo Dia<br>Sistema de Estoque
+             Sistema de Estoque
              </div>
             </div>
          <div class="corpo-etiqueta">
@@ -256,27 +256,27 @@ JsBarcode("#barcode", "Hi world!");
                  Cód:   <?php echo (int)$produto6; ?>
             </div>
             <div class="corpo-dir">
-                <?php 
-                
+                <?php
+
                 if(!empty($quantidade6)){
                     echo '<span class="tit-qtd">Qtd.</span><br>';
                     echo '<span class="qtd-etiq">'.$quantidade6.'</span>';
                 }
                 else{
-                  
+
                 }
-                
-              
+
+
                 ?>
-               
+
         </div>
-        
-        
-    </div>     
-        
-         
-            
-  
-</div> 
- 
+
+
+    </div>
+
+
+
+
+</div>
+
 </div>

@@ -13,6 +13,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /estoque/index.php/$1 [L]
 </IfModule>
-AddType application/x-httpd-php53 .php
 
-php_value memory_limit 512M

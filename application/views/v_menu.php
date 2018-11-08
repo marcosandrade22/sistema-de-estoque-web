@@ -67,8 +67,9 @@
                             </a>
                         </li>-->
                         <?php
-                          $this->load->model('controleacesso');
-                          Controleacesso::menu_lateral();
+                           $this->load->model('Controleacesso');
+                           $CI =& get_instance();
+						                $CI->Controleacesso->menu_lateral();
                           ?>
 
         				              <li class="active-pro">

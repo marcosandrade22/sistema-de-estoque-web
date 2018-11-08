@@ -30,9 +30,9 @@ class Sub_menus extends MY_Controller {
         
          public function index($id){
           
-            $this->load->model('controleacesso');
+            $this->load->model('Controleacesso');
             $controller="menus";
-             if(Controleacesso::acesso($controller) == true){
+             if($this->Controleacesso->acesso($controller) == true){
        
             try{
 			$crud = new grocery_CRUD();

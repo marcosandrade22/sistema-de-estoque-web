@@ -9,13 +9,13 @@ class Devolucoes extends MY_Controller {
         $this->load->model('M_devolucao', 'produtos');
         $this->load->library('table');
         $this->load->model('Getuser');
-           $this->load->model('controleacesso');
+           $this->load->model('Controleacesso');
     }
  
     public function index(){
         // controle de acesso
         $controller="devolucoes";
-              if(Controleacesso::acesso($controller) == true){
+              if($this->Controleacesso->acesso($controller) == true){
               
         $this->load->model('M_devolucao', '', TRUE);
         $data['pagina'] = "Devoluções";

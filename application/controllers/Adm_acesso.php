@@ -61,7 +61,7 @@ class Adm_acesso extends MY_Controller {
 
          public function sub_menu($id){
 
-            $this->load->model('controleacesso');
+            $this->load->model('Controleacesso');
             $controller="adm_menus";
              if($this->Controleacesso->acesso($controller) == true){
             try{

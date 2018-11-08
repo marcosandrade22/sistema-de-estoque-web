@@ -104,7 +104,7 @@
         <h3><?php echo $pagina ?></h3>
         <br />
          <?php
-             if(Controleacesso::acesso_funcao(10) == true){
+           $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(10) == true){
                 echo '<a  class="btn btn-success" href="estoque/novo_produto"><i class="glyphicon glyphicon-plus"></i>Novo Produto</a>';
              }
              else{

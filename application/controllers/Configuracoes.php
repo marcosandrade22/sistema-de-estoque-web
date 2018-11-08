@@ -26,9 +26,9 @@ class Configuracoes extends MY_Controller {
 
 
 	// controle de acesso
-            $this->load->model('controleacesso');
+            $this->load->model('Controleacesso');
             $controller="adm_menus";
-             if(Controleacesso::acesso($controller) == true){
+             if($this->Controleacesso->acesso($controller) == true){
 
             try{
 			$crud = new grocery_CRUD();
@@ -67,9 +67,9 @@ class Configuracoes extends MY_Controller {
 
          public function sub_menu($id){
 
-            $this->load->model('controleacesso');
+            $this->load->model('Controleacesso');
             $controller="menus";
-             if(Controleacesso::acesso($controller) == true){
+             if($this->Controleacesso->acesso($controller) == true){
 
             try{
 			$crud = new grocery_CRUD();

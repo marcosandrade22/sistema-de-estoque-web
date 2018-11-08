@@ -71,7 +71,7 @@ $(function(){
           if($data_requisicao == $data_atual){
          //     echo 'hoje';
           }
-            if(Controleacesso::acesso_funcao(22) == true && $data_requisicao == $data_atual){
+          $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(22) == true && $data_requisicao == $data_atual){
             echo anchor('requisicoes/abrir/'.$cod_nota, form_button('finalizar', 'Abrir Requisicao', 'class="btn btn-primary"'));
             }
             elseif(1 == 1){
@@ -271,7 +271,7 @@ $(function(){
                           <td><?php echo number_format($itens->valor_rq*$itens->qt_pro_req_est, 2, ',', '.') ; ?></td> 
                           
                            <?php
-                           if(Controleacesso::acesso_funcao(33) == true){
+                         $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(33) == true){
                               if($status == 1){ ?>
                          <td>
                             <a href="#" class="confirma_dev btn btn-danger" data-nota="<?php echo $cod_nota; ?>"  data-id="<?= $itens->id_est_rq ?>" data-produto="<?php echo $itens->id_produto; ?>" data-valor="<?php echo $itens->valor_rq; ?>" data-nome="<?= $itens->nome_produto ?>" data-departamento="<?= $itens->departamento_rq ?>"><i class="fa fa-undo" aria-hidden="true"></i> Devolver</a></td>

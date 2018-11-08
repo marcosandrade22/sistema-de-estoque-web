@@ -63,7 +63,7 @@
       </div>
       <div class="content">
          <?php
-             if(Controleacesso::acesso_funcao(10) == true){
+           $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(10) == true){
                 echo '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Novo Produto</button>';
              }
              else{
@@ -96,14 +96,14 @@
 
                        <td>
                           <?php
-                        if(Controleacesso::acesso_funcao(11) == true){
+                      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(11) == true){
                         echo '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$lista->id_produto.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                         }
                         else{
 
                         }
 
-                        if(Controleacesso::acesso_funcao(12) == true){
+                      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(12) == true){
                         echo ' <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_produtos('.$lista->id_produto.')"><i class="glyphicon glyphicon-trash"></i> Del</a>';
                         }
                         else{

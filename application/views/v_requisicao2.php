@@ -76,7 +76,7 @@
       <div class="content">
         <!--<a href="requisicoes/add_rq"><button class="btn btn-success" ><i class="glyphicon glyphicon-plus"></i>Nova Requisição</button></a>-->
         <?php
-        if(Controleacesso::acesso_funcao(16) == true){
+      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(16) == true){
                echo  '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Nova Requisição</button>';
                  }
                  else{

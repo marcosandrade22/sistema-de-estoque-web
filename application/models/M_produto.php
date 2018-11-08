@@ -178,11 +178,11 @@ class M_produto extends CI_Model {
     }
     public function check_estoque($id) {
       $this->db->where('id_produto_qt',$id);
-         $query = $this->db->get(estoque_qt);
+         $query = $this->db->get('estoque_qt');
          return $query->num_rows();
     }
-    public function check_departamento($id) {
-      $query = $this->db->get(departamentos);
+    public function check_departamento() {
+      $query = $this->db->get('departamentos');
          return $query->num_rows();
     }
     public function check_estoque2($id) {

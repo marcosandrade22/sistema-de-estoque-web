@@ -88,7 +88,7 @@
         <br />
         <!--<a href="requisicoes/add_rq"><button class="btn btn-success" ><i class="glyphicon glyphicon-plus"></i>Nova Requisição</button></a>-->
         <?php
-        if(Controleacesso::acesso_funcao(16) == true){
+      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(16) == true){
                echo  '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Nova Requisição</button>';
                  }
                  else{
@@ -131,7 +131,7 @@
                        <td>
                            <?php if($lista->fechado == 0){ 
                                
-                                if(Controleacesso::acesso_funcao(19) == true){
+                              $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(19) == true){
                                 echo '<a href="requisicoes/add_itens/'.$lista->id_requisicao.'" class="btn btn btn-sm btn-primary" ><i class="glyphicon glyphicon-plus"></i> Itens </a>';
                                 }else{};
                                 
@@ -139,7 +139,7 @@
                                 else{ ?>
                              
                            <a class="btn btn-sm disabled btn-danger" >Requisição fechada</a>
-                                <?php if(Controleacesso::acesso_funcao(20) == true){
+                                <?php $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(20) == true){
                                 echo '<a href="requisicoes/add_itens/'.$lista->id_requisicao.'" class="btn btn btn-sm btn-success" ><i class="glyphicon glyphicon-search"></i> Visualizar </a> ';
                                     }
                                     else{};
@@ -148,23 +148,23 @@
                        </td>
                        <td>
                           <?php if($lista->fechado == 0){ 
-                              if(Controleacesso::acesso_funcao(17) == true){
+                            $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(17) == true){
                               echo '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$lista->id_requisicao.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
                             else{};
                           
-                            if(Controleacesso::acesso_funcao(18) == true){
+                          $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(18) == true){
                                echo ' <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_produtos('.$lista->id_requisicao.')"><i class="glyphicon glyphicon-trash"></i> Del</a>';
                                }
                             else{};
                           }
                            else{ 
-                                if(Controleacesso::acesso_funcao(17) == true){
+                              $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(17) == true){
                               echo '<a class="btn btn-sm btn-primary disabled" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
                             else{};
                           
-                            if(Controleacesso::acesso_funcao(18) == true){
+                          $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(18) == true){
                                echo ' <a class="btn btn-sm btn-danger disabled" href="javascript:void(0)" title="Hapus" ><i class="glyphicon glyphicon-trash"></i> Del</a>';
                                }
                             else{};

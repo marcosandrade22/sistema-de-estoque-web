@@ -63,7 +63,7 @@
       </div>
       <div class="content">
          <?php
-             if(Controleacesso::acesso_funcao(24) == true){
+           $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(24) == true){
                 echo '<button class="btn btn-success" onclick="add_ativo()"><i class="glyphicon glyphicon-plus"></i>Novo Ativo</button>';
              }
              else{
@@ -96,7 +96,7 @@
                        <td><?php echo number_format($lista->quantidade_ativo*$lista->valor_ativo,2,',','.'); ?></td>
                        <td>
                           <?php
-                        if(Controleacesso::acesso_funcao(25) == true){
+                      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(25) == true){
                         echo '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$lista->id_ativo.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                         }
                         else{

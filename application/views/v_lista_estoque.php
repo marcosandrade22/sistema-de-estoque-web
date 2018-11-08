@@ -119,7 +119,7 @@
                        <td>
                         <a class="btn btn-sm btn-primary" href="estoque/detalhe/<?php echo $lista->id_produto; ?>" title="Edit" ><i class="glyphicon glyphicon-search"></i> Det.</a>
                         <?php
-                        if(Controleacesso::acesso_funcao(9) == true){   
+                      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(9) == true){   
                             echo '<a class="btn btn-sm btn-success" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$lista->id_produto.')"><i class="glyphicon glyphicon-pencil"></i> Edit.</a>';
                             }
                             else{

@@ -95,7 +95,7 @@ $(document).ready(function() {
                 Requisição Fechada.
               </div>
               ';
-         if(Controleacesso::acesso_funcao(22) == true){
+       $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(22) == true){
           echo anchor('ativos/abrir/'.$cod_nota, form_button('finalizar', 'Abrir Requisicao', 'class="btn btn-primary"'));
           }
            else{

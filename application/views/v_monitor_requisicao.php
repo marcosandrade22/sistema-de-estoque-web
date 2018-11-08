@@ -96,7 +96,7 @@
                        <td>
                            <?php if($lista->fechado == 0){
 
-                                if(Controleacesso::acesso_funcao(19) == true){
+                              $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(19) == true){
                                 echo '<a href="requisicoes/add_itens/'.$lista->id_requisicao.'" class="btn btn btn-sm btn-primary" ><i class="glyphicon glyphicon-plus"></i> Itens </a>';
                                 }else{};
 
@@ -104,7 +104,7 @@
                                 else{ ?>
 
                            <a class="btn btn-sm disabled btn-danger" >Requisição fechada</a>
-                                <?php if(Controleacesso::acesso_funcao(20) == true){
+                                <?php $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(20) == true){
                                 echo '<a href="requisicoes/add_itens/'.$lista->id_requisicao.'" class="btn btn btn-sm btn-success" ><i class="glyphicon glyphicon-search"></i> Visualizar </a> ';
                                     }
                                     else{};

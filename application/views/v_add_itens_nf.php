@@ -44,7 +44,7 @@ $(document).ready(function() {
               </div>
               </div>';
          
-          if(Controleacesso::acesso_funcao(21) == true){
+        $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(21) == true){
           echo anchor('nota_fiscal/abrir/'.$cod_nota, form_button('finalizar', 'Abrir Nota', 'class="btn btn-primary"'));
           }
           else{

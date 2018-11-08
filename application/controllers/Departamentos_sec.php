@@ -8,7 +8,7 @@ class Departamantos_sec extends MY_Controller {
                 $this->load->model('M_configuracoes');
                 $this->load->helper('url');
                 $this->load->library('grocery_CRUD');
-                $this->load->model('controleacesso');
+                $this->load->model('Controleacesso');
 	}
 	
      
@@ -31,7 +31,7 @@ class Departamantos_sec extends MY_Controller {
          
 	// controle de acesso
         $controller="adm_menus";
-             if(Controleacesso::acesso($controller) == true){
+             if($this->Controleacesso->acesso($controller) == true){
        
             try{
 			$crud = new grocery_CRUD();
@@ -71,9 +71,9 @@ class Departamantos_sec extends MY_Controller {
         
          public function sub_menu($id){
           
-            $this->load->model('controleacesso');
+            $this->load->model('Controleacesso');
             $controller="adm_menus";
-             if(Controleacesso::acesso($controller) == true){
+             if($this->Controleacesso->acesso($controller) == true){
        
             try{
 			$crud = new grocery_CRUD();

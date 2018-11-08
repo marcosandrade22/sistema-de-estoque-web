@@ -7,7 +7,7 @@ class Produtos extends MY_Controller {
     {
         parent::__construct();
         $this->load->model('M_produto', 'produtos');
-        $this->load->model('controleacesso');
+        $this->load->model('Controleacesso');
          $this->load->model('M_nota', '', TRUE);
     }
 
@@ -26,7 +26,7 @@ class Produtos extends MY_Controller {
         // controle de acesso
 
         $controller="produtos";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $data['pagina'] = "Estoque";
         $data['title'] = "Produtos - Estoque";

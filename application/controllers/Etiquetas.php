@@ -10,7 +10,7 @@ class Etiquetas extends MY_Controller {
         $this->load->model('M_produto');
         $this->load->library('table');
         $this->load->model('Getuser');
-        $this->load->model('controleacesso');
+        $this->load->model('Controleacesso');
         $this->load->model('M_nota', '', TRUE);
     }
 
@@ -18,7 +18,7 @@ class Etiquetas extends MY_Controller {
         // controle de acesso
 
         $controller="etiquetas";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $data['pagina'] = "Etiquetas";
         $data['title'] = "Etiquetas - Estoque";

@@ -14,7 +14,6 @@
             jQuery("#notificacao").load(url);
         }
         setInterval("atualizarTarefas()", 1000);
-
          function RequisicaoNaoDevolvidas() {
            // aqui voce passa o id do usuario
            var url="ativos/gera_alerta_rq_nao_devolvida";
@@ -67,9 +66,10 @@
                             </a>
                         </li>-->
                         <?php
-                           $this->load->model('Controleacesso');
-                           $CI =& get_instance();
-						                $CI->Controleacesso->menu_lateral();
+                          $this->load->model('Controleacesso');
+                          //Controleacesso::menu_lateral();
+						                    $CI =& get_instance();
+						                    $CI->Controleacesso->menu_lateral();
                           ?>
 
         				              <li class="active-pro">

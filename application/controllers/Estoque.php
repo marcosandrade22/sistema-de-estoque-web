@@ -11,7 +11,7 @@ class Estoque extends MY_Controller {
         $this->load->model('M_produto', 'cadastro');
         $this->load->library('table');
         $this->load->model('Getuser');
-        $this->load->model('controleacesso');
+        $this->load->model('Controleacesso');
         $this->load->model('M_nota', '', TRUE);
         $this->load->model('M_produto', '', TRUE);
             $this->load->helper('url');
@@ -29,7 +29,7 @@ class Estoque extends MY_Controller {
     public function lista_estoque()
     {  // controle de acesso
         $controller="estoque/lista_estoque";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $data['departamentos'] = $this->M_nota->listDep();
         $data['pagina'] = "Estoque";
@@ -49,7 +49,7 @@ class Estoque extends MY_Controller {
     public function produtos()
     {  // controle de acesso
         $controller="estoque/produtos";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
         $data['departamento'] = $this->M_nota->listDep();
         $data['headline'] = "Estoque";
         $data['pagina'] = "Estoque";
@@ -71,7 +71,7 @@ class Estoque extends MY_Controller {
         // controle de acesso
 
         $controller="estoque/lista_estoque";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_estoqueqt', '', TRUE);
         $data['pagina'] = "Estoque";
@@ -110,7 +110,7 @@ class Estoque extends MY_Controller {
             $row[] = $produtos->preco_venda;
 
             $row[] = ' <a class="btn btn-sm btn-primary" href="estoque/detalhe/'.$produtos->produto_estoque.'" title="Edit" ><i class="glyphicon glyphicon-search"></i> Det.</a>';
-             if(Controleacesso::acesso_funcao(9) == true){
+             if($this->Controleacesso->acesso_funcao(9) == true){
              $row[] = '<a class="btn btn-sm btn-success" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$produtos->produto_estoque.')"><i class="glyphicon glyphicon-pencil"></i> Edit.</a>';
 
              }
@@ -156,7 +156,7 @@ class Estoque extends MY_Controller {
             $row[] = $produtos->preco_venda;
 
              $row[] = ' <a class="btn btn-sm btn-primary" href="estoque/detalhe/'.$produtos->id_produto.'" title="Edit" ><i class="glyphicon glyphicon-search"></i> Det.</a>';
-            if(Controleacesso::acesso_funcao(11) == true){
+            if($this->Controleacesso->acesso_funcao(11) == true){
            //$row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$produtos->id_produto.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
              $row[] = '<a class="btn btn-sm btn-primary" href="estoque/editar_produto/'.$produtos->id_produto.'" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
             }
@@ -164,7 +164,7 @@ class Estoque extends MY_Controller {
             $row[] =  '<a class="btn btn-sm btn-primary"  title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
             }
 
-           if(Controleacesso::acesso_funcao(12) == true){
+           if($this->Controleacesso->acesso_funcao(12) == true){
                // se o produto já possuiu movimentação
                if($this->M_estoqueqt->verifica_movimento($produtos->id_produto) >=1){
                //if($produtos->qt_produto > 0){
@@ -194,7 +194,7 @@ class Estoque extends MY_Controller {
     public function produtos_antigo() {
          // controle de acesso
         $controller="estoque/produtos";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
 
         $this->load->model('M_produto', '', TRUE);
@@ -215,7 +215,7 @@ class Estoque extends MY_Controller {
     public function editar_produto($id=null)
         {  // controle de acesso
         $controller="estoque/produtos";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $data['departamento'] = $this->M_nota->listDep();
         $data['pagina'] = "Editar  Produto";
@@ -320,7 +320,7 @@ class Estoque extends MY_Controller {
     public function departamentos(){
           // controle de acesso
         $controller="estoque/departamentos";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Departamentos";

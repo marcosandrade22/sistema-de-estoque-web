@@ -66,8 +66,19 @@
       <div class="content">
 
         <?php
-        if(Controleacesso::acesso_funcao(1) == true){
+      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(1) == true){
+        if($num_forn == 0){
+          echo '<div class="alert alert-info">
+                            <span>É necessário cadastrar um departamento antes de adicionar um fornecedor
+                            <a class="black" href="'.base_url().'nota_fiscal/fornecedores">Clique Para Adicionar</a>
+                            </span>
+                </div>';
+                echo '<button class="btn btn-success"  disabled><i class="glyphicon glyphicon-plus"></i>Nova Nota</button>';
+            }
+            else{
         echo '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Nova Nota</button>';
+        }
+
         }
         else{
         echo '<button class="btn btn-success"  disabled><i class="glyphicon glyphicon-plus"></i>Nova Nota</button>';
@@ -95,7 +106,7 @@
                     <td><?php echo date('d-m-Y' , strtotime($fornecedor->data_visao)); ?></td>
                  <?php
            if($fornecedor->fechado_visao == 0){
-                 if(Controleacesso::acesso_funcao(5) == true){
+               $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(5) == true){
                     echo '<td><a href="nota_fiscal/add_itens/'.$fornecedor->visao_nota.'" class="btn btn btn-sm btn-primary" ><i class="glyphicon glyphicon-plus"></i> Itens </a> </td>' ;
                  }
                     else{
@@ -105,7 +116,7 @@
                  }
             else{
 
-                    if(Controleacesso::acesso_funcao(2) == true){
+                  $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(2) == true){
                     echo '<td><a class="btn btn-sm   btn-danger disabled" >Nota fechada</a> '
                             . '<a href="nota_fiscal/add_itens/'.$fornecedor->visao_nota.'" class="btn btn btn-sm btn-success" ><i class="glyphicon glyphicon-search"></i> Visualizar </a> </td> ';
                     }
@@ -119,13 +130,13 @@
              // verificação se a nota esta fechada para exibição dos botões
              if($fornecedor->fechado_visao == 0){
                  echo '<td>';
-                 if(Controleacesso::acesso_funcao(3) == true){
+               $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(3) == true){
                     echo'<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('."'".$fornecedor->visao_nota."'".')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                  }
                  else{
 
                  }
-                  if(Controleacesso::acesso_funcao(4) == true){
+                $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(4) == true){
                    echo  ' <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_produtos('."'".$fornecedor->visao_nota."'".')"><i class="glyphicon glyphicon-trash"></i> Del</a>';
                     }
                     else{
@@ -137,13 +148,13 @@
 
              else{
                   echo '<td>';
-                 if(Controleacesso::acesso_funcao(3) == true){
+               $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(3) == true){
                     echo '<a class="btn btn-sm btn-primary disabled" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                     }
                  else{
 
                  }
-                 if(Controleacesso::acesso_funcao(4) == true){
+               $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(4) == true){
                     echo ' <a class="btn btn-sm btn-danger disabled" href="javascript:void(0)" title="Hapus" ><i class="glyphicon glyphicon-trash"></i> Del</a>';
                      }
                     else{

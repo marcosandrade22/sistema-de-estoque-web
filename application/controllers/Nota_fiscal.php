@@ -9,7 +9,7 @@ class Nota_fiscal extends MY_Controller {
         $this->load->model('M_nota', 'produtos');
         $this->load->library('table');
         $this->load->model('Getuser');
-        $this->load->model('controleacesso');
+        $this->load->model('Controleacesso');
     }
 
     public function index(){
@@ -26,7 +26,7 @@ class Nota_fiscal extends MY_Controller {
     public function lista_nf(){
         // controle de acesso
         $controller="nota_fiscal";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Nota Fiscal";
@@ -35,6 +35,7 @@ class Nota_fiscal extends MY_Controller {
         $data['fornecedor'] = $this->M_nota->listNota();
         $data['fornecedor2'] = $this->M_nota->ListaFor();
         $data['departamento'] = $this->M_nota->ListaDep();
+          $data['num_forn'] = $this->M_nota->check_fornecedor();
         $this->load->model('Getuser');
         $this->load->helper('url');
         $this->load->view('v_header',$data);
@@ -52,7 +53,7 @@ class Nota_fiscal extends MY_Controller {
     public function fornecedores(){
         // controle de acesso
         $controller="nota_fiscal/fornecedores";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_nota', '', TRUE);
         $data['pagina'] = "Fornecedores";

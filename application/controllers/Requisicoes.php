@@ -11,7 +11,7 @@ class Requisicoes extends MY_Controller {
         $this->load->model('M_nota');
         $this->load->library('table');
         $this->load->model('Getuser');
-        $this->load->model('controleacesso');
+        $this->load->model('Controleacesso');
         $this->load->model('Ajax_model');
         $this->load->helper('url');
     }
@@ -30,7 +30,7 @@ class Requisicoes extends MY_Controller {
      public function nova_requisicao()
     {  // controle de acesso
         $controller="requisicoes/nova_requisicao";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $data['lista'] = $this->requisicao->lista_requisicoes();
         $data['dep'] = $this->requisicao->lista_dep_req();
@@ -67,7 +67,7 @@ class Requisicoes extends MY_Controller {
     public function nova_requisicao2(){
         // controle de acesso
         $controller="requisicoes/nova_requisicao";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_requisicao', '', TRUE);
         $data['pagina'] = "Requisições";
@@ -99,7 +99,7 @@ class Requisicoes extends MY_Controller {
     public function monitor_requisicao(){
           // controle de acesso
         $controller="requisicoes/monitor_requisicao";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_requisicao', '', TRUE);
 
@@ -125,7 +125,7 @@ class Requisicoes extends MY_Controller {
 
     public function tipo_requisicao(){
       $controller="requisicoes/tipo_requisicao";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
         $this->load->model('M_requisicao', '', TRUE);
         $data['pagina'] = "Tipos de Requisições";
         $data['tipo'] = $this->requisicao->lista_tipo_rq();
@@ -160,7 +160,7 @@ class Requisicoes extends MY_Controller {
                 }
          if($produtos->fechado == 0){
 
-                                if(Controleacesso::acesso_funcao(19) == true){
+                                if($this->Controleacesso->acesso_funcao(19) == true){
                               $row[] = '<a href="requisicoes/add_itens/'.$produtos->id_requisicao.'" class="btn btn btn-sm btn-primary" ><i class="glyphicon glyphicon-plus"></i> Itens </a>';
                                }else{
                                  $row[] = '<a  class="btn btn btn-sm btn-primary" disabled ><i class="glyphicon glyphicon-plus"></i> Itens </a>';
@@ -171,7 +171,7 @@ class Requisicoes extends MY_Controller {
                                 else{
 
 
-                              if(Controleacesso::acesso_funcao(20) == true){
+                              if($this->Controleacesso->acesso_funcao(20) == true){
                                 $row[] =  '<a class="btn btn-sm disabled btn-danger" >Requisição fechada</a> <a href="requisicoes/add_itens/'.$produtos->id_requisicao.'" class="btn btn btn-sm btn-success" ><i class="glyphicon glyphicon-search"></i> Visualizar </a> ';
                                     }
                                     else{
@@ -184,14 +184,14 @@ class Requisicoes extends MY_Controller {
 
 
               if($produtos->fechado == 0){
-                              if(Controleacesso::acesso_funcao(17) == true){
+                              if($this->Controleacesso->acesso_funcao(17) == true){
                            $row[] = '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$produtos->id_requisicao.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
                             else{
                               $row[] = '<a class="btn btn-sm btn-primary"  title="Edit" disabled ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
 
-                                if(Controleacesso::acesso_funcao(18) == true){
+                                if($this->Controleacesso->acesso_funcao(18) == true){
 
                                     if($this->M_requisicao->check_itens($produtos->id_requisicao)){
                                     //if(1==2){
@@ -209,12 +209,12 @@ class Requisicoes extends MY_Controller {
                                 }
                           }
                            else{
-                            if(Controleacesso::acesso_funcao(17) == true){
+                            if($this->Controleacesso->acesso_funcao(17) == true){
                               $row[] =  '<a class="btn btn-sm btn-primary disabled" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
                             else{$row[] =  '<a class="btn btn-sm btn-primary disabled" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';}
 
-                            if(Controleacesso::acesso_funcao(18) == true){
+                            if($this->Controleacesso->acesso_funcao(18) == true){
                                $row[] =  '<a class="btn btn-sm btn-danger disabled" href="javascript:void(0)" title="Hapus" ><i class="glyphicon glyphicon-trash"></i> Del</a>';
                                }
                             else{ $row[] =  '<a class="btn btn-sm btn-danger disabled" href="javascript:void(0)" title="Hapus" ><i class="glyphicon glyphicon-trash"></i> Del</a>';
@@ -701,7 +701,7 @@ class Requisicoes extends MY_Controller {
     public function add_rq(){
          // controle de acesso
         $controller="adm_menus";
-        if(Controleacesso::acesso($controller) == true){
+        if($this->Controleacesso->acesso($controller) == true){
 
         $this->load->model('M_requisicao', '', TRUE);
         $data['pagina'] = "Requisições";

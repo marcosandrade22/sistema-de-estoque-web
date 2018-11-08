@@ -1,14 +1,14 @@
-<?php 
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class M_configuracoes extends CI_Model{
-            
-               public function M_configuracoes()
-        {
-                // Call the CI_Model constructor
-                parent::__construct();
-                
-        }
-        
+class M_configuracoes extends CI_Model{
+	public function __construct()
+	{
+			parent::__construct();
+			$this->load->database();
+	}
+
+
 
 		public function addMenu($data)
 		{
@@ -31,26 +31,26 @@
 		function updateMenu($id, $data)
 		{
 			$this->db->where('id_produto', $id);
-			$this->db->update('produtos', $data); 
+			$this->db->update('produtos', $data);
 		}
 
 		function deleteMenu($id)
 		{
 			$this->db->where('id_produto', $id);
-			$this->db->delete('produtos'); 
+			$this->db->delete('produtos');
 		}
-                
-                
+
+
                 public function delete($id = null, $senha){
 		if ($id) {
-                  
+
                     $this->db->where('senha_deletar', $senha);
                     $this->db->where('id_artigo', $id);
                     return $this->db->delete('artigos');
 			//return $this->db->where('id_artigo', $id)->delete('artigos');
 		}
 	}
-        
+
          public function menus($limite, $offset){
             $this->db->limit($limite, $offset);
             //$this->db->order_by("data_criacao", "desc");
@@ -59,11 +59,11 @@
             $query = $this->db->get('menu');
             return $query->result();
             }
-    
-        
-        
+
+
+
          public function store($dados = null, $id = null) {
-		
+
 		if ($dados) {
 			if ($id) {
 				$this->db->where('id_artigo', $id);
@@ -80,7 +80,7 @@
 				}
 			}
 		}
-		
+
 	}
 
 	}

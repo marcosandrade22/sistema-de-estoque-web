@@ -63,7 +63,7 @@
         <h3><?php echo $pagina ?></h3>
       </div>
       <div class="content">  <?php
-        if(Controleacesso::acesso_funcao(26) == true){
+      $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(26) == true){
                echo  '<button class="btn btn-success" onclick="add_produtos()"><i class="glyphicon glyphicon-plus"></i>Nova Requisição</button>';
                  }
                  else{
@@ -110,7 +110,7 @@
                       <td><?php echo date('d-m-Y' , strtotime($lista->data_retorno)); ?></td>
                        <!--<td><?php //echo $this->M_requisicao->get_dep($lista->id_rq_ativo);  ?></td>-->
                       <td>
-                           <?php if(Controleacesso::acesso_funcao(32) == true){
+                           <?php $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(32) == true){
                                     if($lista->devolvido == 0 AND $lista->status_rq_ativo != 0){
                                 echo '<a href="ativos/baixa_requisicao/'.$lista->id_rq_ativo.'" class="btn btn btn-sm btn-info" ><i class="glyphicon glyphicon-search"></i> Baixa </a> ';
                                     }
@@ -142,7 +142,7 @@
                        <td>
                            <?php if($lista->status_rq_ativo == 0){
 
-                                if(Controleacesso::acesso_funcao(27) == true){
+                              $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(27) == true){
                                 echo '<a href="ativos/add_itens/'.$lista->id_rq_ativo.'" class="btn btn btn-sm btn-primary" ><i class="glyphicon glyphicon-plus"></i> Itens </a>';
                                 }else{};
 
@@ -150,7 +150,7 @@
                                 else{ ?>
 
                            <a class="btn btn-sm disabled btn-danger" >Requisição fechada</a>
-                                <?php if(Controleacesso::acesso_funcao(28) == true){
+                                <?php $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(28) == true){
                                 echo '<a href="ativos/add_itens/'.$lista->id_rq_ativo.'" class="btn btn btn-sm btn-success" ><i class="glyphicon glyphicon-search"></i> Visualizar </a> ';
                                     }
                                     else{};
@@ -162,23 +162,23 @@
                        </td>
                        <td>
                           <?php if($lista->status_rq_ativo == 0){
-                              if(Controleacesso::acesso_funcao(29) == true){
+                            $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(29) == true){
                               echo '<a class="btn btn-sm btn-primary" href="javascript:void(0)" title="Edit" onclick="edit_produtos('.$lista->id_rq_ativo.')"><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
                             else{};
 
-                            if(Controleacesso::acesso_funcao(30) == true){
+                          $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(30) == true){
                                echo ' <a class="btn btn-sm btn-danger" href="javascript:void(0)" title="Hapus" onclick="delete_produtos('.$lista->id_rq_ativo.')"><i class="glyphicon glyphicon-trash"></i> Del</a>';
                                }
                             else{};
                           }
                            else{
-                                if(Controleacesso::acesso_funcao(29) == true){
+                              $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(29) == true){
                               echo '<a class="btn btn-sm btn-primary disabled" href="javascript:void(0)" title="Edit" ><i class="glyphicon glyphicon-pencil"></i> Editar</a>';
                             }
                             else{};
 
-                            if(Controleacesso::acesso_funcao(30) == true){
+                          $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(30) == true){
                                echo ' <a class="btn btn-sm btn-danger disabled" href="javascript:void(0)" title="Hapus" ><i class="glyphicon glyphicon-trash"></i> Del</a>';
                                }
                             else{};

@@ -72,7 +72,7 @@
       </div>
       <div class="content">
          <?php
-         if(Controleacesso::acesso_funcao(10) == true){
+       $CI =& get_instance(); if($CI->Controleacesso->acesso_funcao(10) == true){
 
                 if($num_dep == 0){
                   echo '<div class="alert alert-info">

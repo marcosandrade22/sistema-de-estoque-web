@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 06-Nov-2018 às 17:11
+-- Generation Time: 09-Nov-2018 às 15:07
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 5.6.38
 
@@ -150,7 +150,13 @@ INSERT INTO `acesso_funcao` (`id_funcao_acesso`, `id_acesso_funcao`) VALUES
 (3, 32),
 (1, 18),
 (1, 33),
-(2, 33);
+(2, 33),
+(2, 34),
+(1, 34),
+(2, 35),
+(1, 35),
+(2, 36),
+(1, 36);
 
 -- --------------------------------------------------------
 
@@ -250,7 +256,34 @@ INSERT INTO `acesso_menu` (`menu_id`, `funcao_id`) VALUES
 (78, 2),
 (78, 1),
 (78, 3),
-(79, 1);
+(79, 1),
+(80, 2),
+(80, 1),
+(81, 2),
+(81, 1),
+(82, 2),
+(82, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ajustes`
+--
+
+CREATE TABLE `ajustes` (
+  `id_ajuste` int(11) NOT NULL,
+  `tipo_ajuste` int(11) NOT NULL,
+  `nome_ajuste` varchar(255) NOT NULL,
+  `usuario_ajuste` int(11) NOT NULL,
+  `data_ajuste` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `ajustes`
+--
+
+INSERT INTO `ajustes` (`id_ajuste`, `tipo_ajuste`, `nome_ajuste`, `usuario_ajuste`, `data_ajuste`) VALUES
+(1, 1, 'Ajuste de Quebra', 1, '2018-11-09');
 
 -- --------------------------------------------------------
 
@@ -277,6 +310,13 @@ CREATE TABLE `departamentos` (
   `id_departamento` int(255) NOT NULL,
   `nome_departamento` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `departamentos`
+--
+
+INSERT INTO `departamentos` (`id_departamento`, `nome_departamento`) VALUES
+(38, 'Departamento Teste.');
 
 -- --------------------------------------------------------
 
@@ -311,6 +351,13 @@ CREATE TABLE `estoque` (
   `data_estoque` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `estoque`
+--
+
+INSERT INTO `estoque` (`id_estoque`, `produto_estoque`, `departamento_estoque`, `id_nf_estoque`, `nf_estoque`, `quantidade_estoque`, `entrada_estoque`, `saida_estoque`, `tipo_movimento`, `preco_estoque`, `custo_medio`, `custo_entrada`, `data_estoque`) VALUES
+(22343, 2708, 0, 1219, 789, 30, 30, 0, 1, '', '0.5', '0.50', '2018-11-09');
+
 -- --------------------------------------------------------
 
 --
@@ -330,6 +377,13 @@ CREATE TABLE `estoque_nf` (
   `preco_estoque` varchar(255) NOT NULL,
   `data_estoque` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `estoque_nf`
+--
+
+INSERT INTO `estoque_nf` (`id_estoque`, `produto_estoque`, `departamento_estoque`, `id_nf_estoque`, `nf_estoque`, `quantidade_estoque`, `entrada_estoque`, `saida_estoque`, `tipo_movimento`, `preco_estoque`, `data_estoque`) VALUES
+(6403, 2708, 38, 1219, 789, 30, 0, 0, 0, '0.50', '2018-11-09');
 
 -- --------------------------------------------------------
 
@@ -407,6 +461,13 @@ CREATE TABLE `fornecedor` (
   `ativo` char(1) NOT NULL DEFAULT 'S'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+INSERT INTO `fornecedor` (`id_fornecedor`, `cnpj`, `razao_social`, `telefone`, `ativo`) VALUES
+(167, '73.686.370/021', 'Fornecedor de teste', '21 2456-0000', 'S');
+
 -- --------------------------------------------------------
 
 --
@@ -455,7 +516,10 @@ INSERT INTO `funcao_programa` (`id_funcao`, `nome_funcao_acesso`) VALUES
 (30, 'Deletar Requisição Ativo'),
 (31, 'Baixa Requisição'),
 (32, 'Baixa requisição Ativo'),
-(33, 'Devolver Item Requisição');
+(33, 'Devolver Item Requisição'),
+(34, 'Novo tipo de ajuste'),
+(35, 'Novo ajuste'),
+(36, 'Editar tipo Ajuste');
 
 -- --------------------------------------------------------
 
@@ -599,7 +663,10 @@ INSERT INTO `menu` (`id_menu`, `nome_menu`, `tipo_menu`, `apelido`, `pai_menu`, 
 (76, 'Controle de Ativos', 2, 'ativos', 75, 'ativos/lista_ativos', 0, 0, 'ti-list'),
 (77, 'Requisição de Ativo', 2, 'requisicao_ativo', 75, 'ativos/nova_requisicao', 0, 0, 'ti-pencil-alt'),
 (78, 'Etiquetas', 2, 'etiquetas', 6, 'etiquetas', 0, 0, 'ti-ticket'),
-(79, 'Atualizacao', 2, 'adm_update', 44, 'adm_update', 0, 3, 'ti-reload');
+(79, 'Atualizacao', 2, 'adm_update', 44, 'adm_update', 0, 3, 'ti-reload'),
+(80, 'Ajustes', 1, 'ajustes', 0, 'ajustes', 0, 4, 'ti-pencil-alt'),
+(81, 'Ajustes Realizados', 2, 'lista ajustes', 80, 'ajustes/lista_ajustes', 0, 1, 'ti-receipt'),
+(82, 'Tipos de Ajuste', 2, 'tipo_ajuste', 80, 'ajustes/tipo_ajuste', 0, 0, 'ti-files');
 
 -- --------------------------------------------------------
 
@@ -636,6 +703,13 @@ CREATE TABLE `nota` (
   `departamento_nota` int(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `nota`
+--
+
+INSERT INTO `nota` (`cod_nota`, `numero_nota`, `serie_nota`, `id_fornecedor`, `data_nota`, `fechado`, `departamento_nota`) VALUES
+(1219, '789', '1', 167, '2018-11-09', 1, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -652,6 +726,13 @@ CREATE TABLE `produtos` (
   `qt_produto` int(255) NOT NULL,
   `imagem_produto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id_produto`, `cod_barras`, `nome_produto`, `descricao_produto`, `departamento_produto`, `preco_venda`, `qt_produto`, `imagem_produto`) VALUES
+(2708, 7894900010203, 'Produto de teste', 'Descrição de teste', 38, '0.50', 30, '2708.jpg');
 
 -- --------------------------------------------------------
 
@@ -702,6 +783,25 @@ CREATE TABLE `TABLE 20` (
   `COL 7` varchar(6) DEFAULT NULL,
   `COL 8` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tipo_ajuste`
+--
+
+CREATE TABLE `tipo_ajuste` (
+  `id_tipo_ajuste` int(11) NOT NULL,
+  `nome_tipo_ajuste` varchar(255) NOT NULL,
+  `movimento_tipo_ajuste` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `tipo_ajuste`
+--
+
+INSERT INTO `tipo_ajuste` (`id_tipo_ajuste`, `nome_tipo_ajuste`, `movimento_tipo_ajuste`) VALUES
+(1, 'Quebra', 2);
 
 -- --------------------------------------------------------
 
@@ -778,6 +878,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `ajustes`
+--
+ALTER TABLE `ajustes`
+  ADD PRIMARY KEY (`id_ajuste`);
 
 --
 -- Indexes for table `ativos`
@@ -901,6 +1007,12 @@ ALTER TABLE `requisicao_ativo`
   ADD PRIMARY KEY (`id_rq_ativo`);
 
 --
+-- Indexes for table `tipo_ajuste`
+--
+ALTER TABLE `tipo_ajuste`
+  ADD PRIMARY KEY (`id_tipo_ajuste`);
+
+--
 -- Indexes for table `tipo_requisicao`
 --
 ALTER TABLE `tipo_requisicao`
@@ -909,6 +1021,12 @@ ALTER TABLE `tipo_requisicao`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `ajustes`
+--
+ALTER TABLE `ajustes`
+  MODIFY `id_ajuste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ativos`
@@ -920,7 +1038,7 @@ ALTER TABLE `ativos`
 -- AUTO_INCREMENT for table `departamentos`
 --
 ALTER TABLE `departamentos`
-  MODIFY `id_departamento` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_departamento` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `dep_requisicao`
@@ -932,13 +1050,13 @@ ALTER TABLE `dep_requisicao`
 -- AUTO_INCREMENT for table `estoque`
 --
 ALTER TABLE `estoque`
-  MODIFY `id_estoque` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22343;
+  MODIFY `id_estoque` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22344;
 
 --
 -- AUTO_INCREMENT for table `estoque_nf`
 --
 ALTER TABLE `estoque_nf`
-  MODIFY `id_estoque` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6403;
+  MODIFY `id_estoque` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6404;
 
 --
 -- AUTO_INCREMENT for table `estoque_qt`
@@ -968,13 +1086,13 @@ ALTER TABLE `estoque_rq_dev`
 -- AUTO_INCREMENT for table `fornecedor`
 --
 ALTER TABLE `fornecedor`
-  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `funcao_programa`
 --
 ALTER TABLE `funcao_programa`
-  MODIFY `id_funcao` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_funcao` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `funcionarios`
@@ -998,7 +1116,7 @@ ALTER TABLE `item_pedido`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id_menu` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `menu_sub`
@@ -1010,13 +1128,13 @@ ALTER TABLE `menu_sub`
 -- AUTO_INCREMENT for table `nota`
 --
 ALTER TABLE `nota`
-  MODIFY `cod_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1219;
+  MODIFY `cod_nota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1220;
 
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id_produto` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2707;
+  MODIFY `id_produto` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2709;
 
 --
 -- AUTO_INCREMENT for table `requisicao`
@@ -1029,6 +1147,12 @@ ALTER TABLE `requisicao`
 --
 ALTER TABLE `requisicao_ativo`
   MODIFY `id_rq_ativo` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+
+--
+-- AUTO_INCREMENT for table `tipo_ajuste`
+--
+ALTER TABLE `tipo_ajuste`
+  MODIFY `id_tipo_ajuste` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tipo_requisicao`

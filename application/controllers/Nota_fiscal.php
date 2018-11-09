@@ -140,13 +140,13 @@ class Nota_fiscal extends MY_Controller {
         }
 
     public function add_itens($id){
-        echo $id;
+    
         $this->load->model('M_nota', '', TRUE);
        // $data['funcao'] = $this->Getuser->get_funcao('funcoes', )
         $data['pagina'] = "Nota Fiscal - Adicionar Itens";
         $data['title'] = "Nota Fiscal - Estoque";
         $data['nf'] = $this->M_nota->get_nota($id);
-        //$data['produtos'] = $this->M_nota->listProduto();
+          $data['headline'] = "Adicionar Itens NF";
         $data['departamentos'] = $this->M_nota->listDep();
         $data['itens'] = $this->M_nota->lista_itens_nf($id);
         $this->load->model('Getuser');
@@ -155,6 +155,7 @@ class Nota_fiscal extends MY_Controller {
         $this->load->view('v_menu');
         $this->load->view('v_add_itens_nf', $data);
         $this->load->view('v_table_nota', $data);
+          $this->load->view('v_footer', $data);
     }
 
     public function cadastra_item() {

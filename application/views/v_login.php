@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Sistema  IASD belclima.
+ * Sistema  de Estoque.
  * Desenvolvido por Marcos Andrade suportetuxinfo@gmail.com
  * Todos os direitos reservados
  */
@@ -23,10 +23,9 @@
     <title>Estoque - Área administrativa</title>
 <base href="<?php echo base_url(); ?>" >
     <!-- Bootstrap Core CSS -->
-    <link href="<?php echo base_url() ;?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url() ;?>assets_theme/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?php echo base_url() ;?>assets/css/modern-business.css" rel="stylesheet">
       <link href="<?php echo base_url() ;?>assets/css/style-login.css" rel="stylesheet">
       <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
@@ -34,7 +33,7 @@
       <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom Fonts -->
-    <link href="<?php echo base_url() ;?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="<?php echo base_url() ;?>assets_theme/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,9 +60,7 @@
                                                                                              src="assets/images/gestao-de-estoque.png" alt="" class="img-responsive"></center>
 									</div>
 								</div>
-								<div class="row">
-									<?php echo $mensagem; ?>
-								</div>
+
 								<div class="row">
 									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
 										<div class="form-group">

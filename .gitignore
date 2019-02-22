@@ -1,0 +1,23 @@
+# Global files
+
+*.zip
+.svn
+.DS_Store
+thumbs.db
+
+# Codeigniter files
+
+*/user_guide
+*/system/logs/log-*.php
+*/system/cache/*
+*/system/cache/!index.html
+*/wsdls/*
+*mailing/
+
+# IDE Files
+
+# PHP Storm
+\.idea/
+
+# Netbeans
+\nbproject

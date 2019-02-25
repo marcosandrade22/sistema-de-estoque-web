@@ -238,8 +238,7 @@ class Estoque extends MY_Controller {
                                 $data['imagem_produto'] = $artigos->row()->imagem_produto;
                                 $data['departamento_produto'] = $artigos->row()->departamento_produto;
 
-                              //  $this->load->view('admin/v_adm_edit_artigos', $variaveis);
-                                $this->load->view('produtos/v_edit_produtos',$data);
+                               $this->load->view('produtos/v_edit_produtos',$data);
 			} else {
 				$variaveis['mensagem'] = "Registro não encontrado." ;
 				$this->load->view('errors/html/v_erro', $variaveis);

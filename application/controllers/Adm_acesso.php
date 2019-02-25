@@ -91,8 +91,8 @@ class Adm_acesso extends MY_Controller {
                   //fim do controle de acesso
                  }
            else{
-               $this->load->view('admin/v_header_adm');
-               $this->load->view('admin/v_menu');
+               $this->load->view('v_header');
+               $this->load->view('v_menu');
                echo 'Acesso negado';
               // $this->load->view('v_acesso_negado');
            }

@@ -145,7 +145,7 @@ $(function(){
                         var stateID = $(this).val();
                          if(stateID) {
                         $.ajax({
-                        url: '/estoque/requisicoes/myformAjax/'+stateID,
+                        url: <?php echo base_url();?>'requisicoes/myformAjax/'+stateID,
                         type: "GET",
                         dataType: "json",
                         success:function(data) {

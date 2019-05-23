@@ -258,7 +258,7 @@ class M_nota extends CI_Model {
       $query = $this->db->get('fornecedor');
          return $query->num_rows();
     }
-     public function check_last_estoque($id_produto){
+     public function check_last_estoque_bk($id_produto){
 
         $this->db->where('produto_estoque', $id_produto);
         $this->db->order_by('id_estoque', 'desc');
@@ -269,6 +269,15 @@ class M_nota extends CI_Model {
 
     }
 
+    public function check_last_estoque($id_produto){
+
+        $this->db->where('id_produto', $id_produto);
+        
+        $query = $this->db->get('produtos');
+        $row = $query->row();
+        return $row->qt_produto;
+
+    }
     public function check_last_custo($id_produto){
 
         $this->db->where('produto_estoque', $id_produto);

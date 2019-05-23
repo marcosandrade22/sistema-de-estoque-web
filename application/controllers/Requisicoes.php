@@ -651,6 +651,8 @@ class Requisicoes extends MY_Controller {
             $cedente2 = $item->departamento_rq;
 
             //verifica o ultimo item da nota
+            //a função comentada pegava a quantidade atual do estoque na tabela estoque pelo último ID inserido
+           // $ultimo_estoque =  $this->M_nota->check_last_estoque_bk($id_produto);
             $ultimo_estoque =  $this->M_nota->check_last_estoque($id_produto);
             $nova_qt = $ultimo_estoque - $quantidade;
 

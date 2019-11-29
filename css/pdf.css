@@ -1,0 +1,127 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12/02/2016, 11:54:59
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+*/
+@page toc { sheet-size:  215 x 279 mm; }
+
+body{
+   font-family: freesans;
+   font-size: 0.6em;
+}
+h1{
+    color: #292929;
+    text-align: center;
+}
+table{
+    width: 100%;
+    padding: 4px;
+    border-bottom: 1px solid #000;
+    border-collapse: collapse;
+}
+.table_header{
+     border-bottom: 1px solid #000;
+}
+table tr td{
+   padding: 8px;
+    border-bottom:1px solid #010101;
+    text-align: center;
+}
+.head{
+    border: none !important;
+    padding: 5px;
+}
+
+.head_logo{
+    float: left;
+    width: 20%;
+}
+.head_texto{
+    float: left;
+    text-align: center;
+    padding-left: -20%;
+}
+h3{
+    margin-bottom: 2px;
+    padding-bottom: 2px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+   
+}
+
+.text-muted{
+    font-size: 0.8em;
+}
+.assinatura{
+    margin-top: 50px;
+}
+.etiquetas{
+    width: 325px;
+    padding: 10px;
+    float: left;
+    padding-top: 30px;
+  
+}
+.td_etiqueta{
+    width: 50%;
+}
+.head-etiqueta{
+    width: 100%;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+}
+.img-etiqueta{
+    width: 20%;
+        float: left;
+}
+.text-head-etiqueta{
+    float: left;
+    width: 70%;
+    text-align: left;
+    font-size: 15px;
+}
+.corpo-etiqueta{
+    width: 100%;
+}
+
+.corpo-esq{
+    width: 70%;
+    float: left;
+}
+.corpo-dir{
+    width: 20%;
+    float: left;
+}
+.tit-qtd{
+    font-size: 16px;
+}
+.qtd-etiq{
+font-size: 20px;
+font-weight: bold;
+}
+.title-pro-etiqueta{
+font-size: 11px;
+
+}
+.row{
+   height: 31px;
+}
+.row2{
+   height: 331px;
+}
+.valor-total{
+  font-weight: bold;
+    text-align: right;
+    padding: 5px;
+    font-size: 1.3em;
+}

@@ -1,0 +1,115 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15/06/2016, 13:14:13
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+*/
+/* Style The Dropdown Button */
+.margin-top{
+    margin-top: 75px;
+}
+
+#primary_nav_wrap ul
+{
+	list-style:none;
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul a
+{
+	display:block;
+	color:#333;
+	text-decoration:none;
+	/*font-weight:700;
+	/font-size:12px;*/
+	line-height:32px;
+	padding:0 15px;
+	
+}
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+}
+
+#primary_nav_wrap ul li.current-menu-item
+{
+	background:#ddd
+}
+
+#primary_nav_wrap ul li:hover
+{
+	//background:#f6f6f6
+        background: #b1b1b1;
+}
+
+#primary_nav_wrap ul ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#fff;
+	padding:0
+}
+
+#primary_nav_wrap ul ul li
+{
+	float:none;
+	//width:200px
+}
+
+#primary_nav_wrap ul ul a
+{
+	line-height:120%;
+	padding:10px;
+}
+
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{
+	display:block
+}
+.bar{
+    background: #337AB7;
+}
+.navbar-default{
+    background: #013c09 !important;
+}
+.navbar-default a{
+    color: #fff !important;
+}
+.has-sub a{
+    color: #000 !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+   // background-color: #01610E !important;
+   // color: #000 !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  //  background-color: #01610E !important;
+   // color: #000 !important;
+}
+
+.blue{
+    color: #003eff;
+}
+.red{
+    color: #CC0000;
+}

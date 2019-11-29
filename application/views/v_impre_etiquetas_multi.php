@@ -15,7 +15,7 @@ JsBarcode("#barcode", "Hi world!");
     <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="/img/iasd_logo.jpg" max-height="30px" align="left" />
+             <img src="/img/logo.jpg" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
              <?php echo nome_global; ?><br><?php echo nomepq_global; ?>
@@ -60,7 +60,7 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="/img/iasd_logo.jpg" max-height="30px" align="left" />
+             <img src="/img/logo.jpg" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
              <?php echo nome_global; ?><br><?php echo nomepq_global; ?>
@@ -106,7 +106,7 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-            <img src="/img/iasd_logo.jpg" max-height="30px" align="left" />
+            <img src="/img/logo.jpg" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
              <?php echo nome_global; ?><br><?php echo nomepq_global; ?>
@@ -150,7 +150,7 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="/img/iasd_logo.jpg" max-height="30px" align="left" />
+             <img src="/img/logo.jpg" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
              <?php echo nome_global; ?><br><?php echo nomepq_global; ?>
@@ -195,7 +195,7 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="/img/iasd_logo.jpg" max-height="30px" align="left" />
+             <img src="/img/logo.jpg" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
              <?php echo nome_global; ?><br><?php echo nomepq_global; ?>
@@ -239,7 +239,7 @@ JsBarcode("#barcode", "Hi world!");
   <div class="etiquetas">
          <div class="head-etiqueta">
              <div class="img-etiqueta">
-             <img src="/img/iasd_logo.jpg" max-height="30px" align="left" />
+             <img src="/img/logo.jpg" max-height="30px" align="left" />
              </div>
              <div class="text-head-etiqueta">
              <?php echo nome_global; ?><br><?php echo nomepq_global; ?>

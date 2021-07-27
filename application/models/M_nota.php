@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 class M_nota extends CI_Model {
  
-    var $table = 'visao_nota';
-    var $column_order = array('data_visao', 'fornecedor_visao', 'numero_visao', 'visao_nota'); //set column field database for datatable orderable
-    var $column_search = array('data_visao', 'fornecedor_visao', 'numero_visao', 'visao_nota'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    var $table = 'nota';
+    var $column_order = array('data_nota', 'id_fornecedor', 'numero_nota', 'cod_nota'); //set column field database for datatable orderable
+    var $column_search = array('data_nota', 'id_fornecedor', 'numero_nota', 'cod_nota'); //set column field database for datatable searchable just firstname , lastname , address are searchable
     var $order = array('data_visao' => 'desc'); // default order
  
     public function __construct()
@@ -65,8 +65,9 @@ class M_nota extends CI_Model {
     }
     
     public function listNota(){
-        $this->db->order_by('data_visao', 'DESC');
-     $query = $this->db->get('visao_nota');
+        $this->db->order_by('data_nota', 'DESC');
+		$this->db->join('fornecedor', 'fornecedor.id_fornecedor=nota.id_fornecedor');
+     $query = $this->db->get('nota');
      return $query->result();   
     }
      public function delete($id = null){

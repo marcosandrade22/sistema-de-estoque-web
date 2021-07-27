@@ -39,7 +39,10 @@ class Getuser extends CI_Model{
         $this->db->where('id_funcionario', $id);
         $query = $this->db->get('funcionarios');
         $row = $query->row();
-        return $row->nome_funcionario;
+		
+		if($row){
+			return $row->nome_funcionario;
+		}
     }
 }
 ?>

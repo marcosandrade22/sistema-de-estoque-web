@@ -23,20 +23,17 @@ class Home extends MY_Controller {
 
         public function index()
 	{
-            //$this->output->enable_profiler(TRUE);
+        
         $this->load->model('M_home');
         $this->load->model('Getuser');
         $data['title'] = "Página Inicial - ".title_global;
         $data['headline'] = "Controle de Estoque";
-        //$data['include'] = "estoque_index";
         $data['resumo'] = $this->M_home->resumo_estoque();
         $data['qt_resumo'] = $this->M_home->qt_resumo();
         $this->load->view('v_header', $data);
         $this->load->view('v_menu', $data);
         $this->load->view('v_home', $data);
-	//$this->load->view('template', $data);
-        //$this->load->view('template_lista', $data);
-        }
+		}
         
        function listar()
 	{

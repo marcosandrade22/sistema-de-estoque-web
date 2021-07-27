@@ -102,7 +102,7 @@ return ((x < y) ? 1 : ((x > y) ? -1 : 0));
                         <tr>
                          <th>Dep.</th>
                          <th>Produtos</th>
-                         <th>Valor</th>
+                        
                         </tr>
                     </thead>
             <?php foreach($resumo as $resumo):
@@ -111,46 +111,22 @@ return ((x < y) ? 1 : ((x > y) ? -1 : 0));
                 ?>
                     <tr>
                     <td>
-                        <?php echo $resumo->nome_departamento; ?>
+                        <?php echo $resumo->nome_departamento; ?> 
                     </td>
                      <td class="right">
                       <?php
-                       $query5 = $this->db->query("SELECT * FROM estoque WHERE departamento_estoque = $resumo->id_departamento;");   
-                      $quant = "0"; 
+                       $query5 = $this->db->query("SELECT * FROM produtos WHERE departamento_produto = $resumo->id_departamento;");   
+                      $quant = 0; 
+					 $quant_geral = 0;
                       foreach($query5->result() as $qt):
-                       $quant= $quant+$qt->quantidade_estoque; 
-                      
-                      
-                       endforeach;
+                       $quant= $quant+$qt->qt_produto; 
+						endforeach;
                        $quant_geral = $quant_geral+$quant;
-                       echo $quant;
+                       echo $quant_geral;
                        
                         ?>
                     </td>
-                    <td class="right">
-                        <?php
-                       
-                        $valor_final = '';
-                       $query4 = $this->db->query("SELECT * FROM estoque WHERE departamento_estoque = $resumo->id_departamento;");   
-                       foreach($query4->result() as $qt):
-                       $valor = str_replace(",",".",$qt->preco_estoque);
-                       $valor_linha= $valor*$qt->quantidade_estoque; 
-                       $valor_final = $valor_final+$valor_linha;
-                       
-                       endforeach;
-                       $valor_geral = $valor_geral+$valor_final;
-                      
-                       if(empty($valor_final)){
-                           echo '0';
-                       }
-                       else{
-                        echo  number_format($valor_final,2,',','.');
-                       }
-                       
                     
-                       ?>
-                       
-                    </td>
                     </tr>
                 
             <?php 

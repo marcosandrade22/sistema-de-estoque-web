@@ -20,7 +20,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Estoque Ars - Área administrativa</title>
+    <title><?php echo title_global; ?> - Área administrativa</title>
 <base href="<?php echo base_url(); ?>" >
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url() ;?>assets/css/bootstrap.min.css" rel="stylesheet">

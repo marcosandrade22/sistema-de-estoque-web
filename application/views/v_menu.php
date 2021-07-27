@@ -8,29 +8,37 @@
 //$this->load->model('M_usuarios', '', TRUE);
 ?>
   <script type="text/javascript">
-        function atualizarTarefas() {
-           // aqui voce passa o id do usuario
-           var url="requisicoes/gera_alerta_rq";
-            jQuery("#notificacao").load(url);
-        }
-        setInterval("atualizarTarefas()", 100000);
-        
-         function RequisicaoNaoDevolvidas() {
-           // aqui voce passa o id do usuario
-           var url="ativos/gera_alerta_rq_nao_devolvida";
-            jQuery("#nao_dev").load(url);
-        }
-        setInterval("RequisicaoNaoDevolvidas()", 100000);
-        
-         function RequisicaoAtAberta() {
-           // aqui voce passa o id do usuario
-           var url="ativos/gera_alerta_rq_ativo";
-            jQuery("#ativo_aberto").load(url);
-        }
-        setInterval("RequisicaoAtAberta()", 100000);
-        
-        
-        
+	$(document).ready(function(){
+		url_host = <?php echo base_url ; ?>;
+		
+          $.ajax({
+                url: url_host+"requisicoes/gera_alerta_rq",
+                cache: false,
+                success: function(msg){
+                    $("#notificacao").html(msg);
+                }
+            });
+			
+			 $.ajax({
+                url: url_host+"ativos/gera_alerta_rq_nao_devolvida",
+                cache: false,
+                success: function(msg){
+                    $("#nao_dev").html(msg);
+                }
+            });
+			
+			$.ajax({
+                url: url_host+"ativos/gera_alerta_rq_ativo",
+                cache: false,
+                success: function(msg){
+                    $("#ativo_aberto").html(msg);
+                }
+            });
+			
+          
+	});
+  
+    
         </script> 
   <nav class="navbar navbar-default navbar-fixed-top" id="primary_nav_wrap">
         <div class="container">
